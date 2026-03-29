@@ -1,0 +1,68 @@
+% ---------- Core ----------
+\usepackage{stackengine}
+\usepackage{tikz}
+\usetikzlibrary{fit}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[margin=1in]{geometry}
+% ---------- Text formatting ----------
+% Gives some extra formatting options, e.g. underlining/strikeout
+\usepackage{ulem}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{array}
+
+% Paragraph formatting
+\usepackage[parfill]{parskip}
+\setlength{\parskip}{5pt} % plus 1 minus 1}
+\setlength{\parindent}{30pt}
+
+\usepackage{titlesec}
+
+
+% ---------- Math & symbols ----------
+% Basic math symbols
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newcommand{\defeq}{\mathrel{:=}}
+%%% Gives shortcuts for glossing (optional)
+% \usepackage{leipzig}
+
+% ---------- Tables ----------
+\usepackage{caption}   % For table captions
+\usepackage{booktabs}  % Helps format tables
+
+% ---------- Citations ----------
+\usepackage{natbib}
+
+% ---------- Fonts ----------
+\usepackage{libertine}
+% A font that actually contains many IPA symbols.
+
+% Note: if using system fonts, compile with XeLaTeX
+
+% ---------- Highlighting ----------
+% Highlights text with \hl{text}
+\usepackage{color, soul}
+
+% ---------- Trees ----------
+\usepackage[linguistics]{forest}
+% Formatting for nicer trees
+\forestset{
+  nice nodes/.style={
+    for tree={
+      inner sep=0pt,
+      fit=band,
+    },
+  },
+  default preamble=nice nodes,
+}
+
+% ---------- Examples ----------
+%% For numbered and glossed examples %%
+\usepackage{gb4e}
+
+%%%%%%%%%%%%
+%% End of PREAMBLE
+%%%%%%%%%%%%

@@ -1,0 +1,100 @@
+\documentclass{article}
+\input{format.tex}
+\title{Modeling Tonal Effects of Vowel Deletion as Logical Transductions}
+\author{Han Li}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Vowel hiatus is commonly resolved through processes such as vowel deletion or modification. In tonal languages, where vowels serve as tone-bearing units (TBUs), hiatus resolution often triggers changes in tone–vowel association. These include tone deletion, contour formation, and tone coalescence. While such patterns are difficult to capture in linear phonology, they are naturally represented in autosegmental phonology, where tones and TBUs are represented on separate tiers connected by association relations.
+
+This paper proposes that tonal effects triggered by vowel deletion can be reduced to two operations over association relations: \textit{deassociation} and \textit{reassociation}. We formalize these operations as logical transductions over autosegmental representations. We show that these two operations derive the major typological outcomes of vowel deletion, and extend to less common cases such as vowel deletion blocking. This provides a unified and computationally explicit account of tonal processes that preserves structural representations while modifying only association relations.
+
+\section{Typology}
+
+We argue that three typologically common outcomes of vowel deletion can be derived from two basic operations:
+
+\begin{enumerate}
+\item \textbf{Tone deletion}: arises from deassociation without reassociation.
+\item \textbf{Contour formation}: arises from reassociation of a tone to an already-associated TBU.
+\item \textbf{Tone coalescence}: arises from reassociation combined with constraints on tonal sequences.
+\end{enumerate}
+
+These patterns follow from how association relations are updated after vowel deletion. Importantly, no changes to tonal or segmental features are required.
+
+\section{Logical Transduction Framework}
+
+Following \citet{yolyan2025logical}, phonological mappings are modeled as logical transductions over relational structures. We represent autosegmental structures with the following predicates:
+
+\begin{align*}
+H(x), L(x) &\quad \text{tone predicates} \\
+V(x) &\quad \text{vowel predicate} \\
+\lhd_T(x,y) &\quad \text{tone ordering} \\
+\lhd_V(x,y) &\quad \text{vowel ordering} \\
+\alpha(x,y) &\quad \text{association relation}
+\end{align*}
+
+The key idea is that transductions preserve all structure except the association relation.
+
+\section{Tone Deletion}
+
+Tone deletion occurs when a vowel is deleted and its associated tone is not reassociated. This is captured by removing association links:
+
+\begin{align*}
+H'(x) &:= H(x) \\
+L'(x) &:= L(x) \\
+V'(x) &:= V(x) \land \neg \textsf{delete_V}(x) \\
+\lhd_T'(x,y) &:= \lhd_T(x,y) \\
+\lhd_V'(x,y) &:= \lhd_V(x,y) \\
+\alpha'(x,y) &:= \alpha(x,y) \land \neg \textsf{deassoc}(x,y)
+\end{align*}
+
+where
+
+\begin{align*}
+\textsf{deassoc}(T,V) := \alpha(T,V) \land \textsf{delete_V}(V)
+\end{align*}
+
+Deletion conditions are language-specific but structurally simple:
+
+\begin{align*}
+\text{Left deletion: } & \exists V'; \lhd(V',V) \\
+\text{Right deletion: } & \exists V'; \lhd(V,V') \\
+\text{Contextual deletion: } & a(V) \land \exists V'; (\lhd(V',V) \lor \lhd(V,V'))
+\end{align*}
+
+Thus, tone deletion arises from loss of association due to removal of the TBU.
+
+\section{Contour Formation}
+
+Contour formation occurs when a tone from a deleted vowel reassociates to a neighboring vowel:
+
+\begin{align*}
+\alpha'(T,V) := (\alpha(T,V) \land \neg \textsf{deassoc}(T,V)) \lor \textsf{reassoc}(T,V)
+\end{align*}
+
+where
+
+\begin{align*}
+\textsf{deassoc}(T,V) &:= \alpha(T,V) \land \exists V'; (\lhd(V',V) \land \neg \alpha(T,V')) \\
+\textsf{reassoc}(T,V) &:= \neg \alpha(T,V) \land \exists V'; (\lhd(V,V') \land \alpha(T,V'))
+\end{align*}
+
+This results in multiple tones associating to a single vowel, yielding contour tones. Crucially, the contour reflects the linear order of tones.
+
+\section{Discussion}
+
+The analysis shows that tonal effects of vowel deletion can be reduced to local updates on association relations. All structural relations are preserved, and only $\alpha$ is modified. This provides a unified account of tone deletion, contour formation, and coalescence.
+
+From a computational perspective, this suggests that tonal processes can be learned by identifying conditions under which association relations are modified. This connects naturally to recent work on learning phonological patterns over structured representations.
+
+\section{Conclusion}
+
+We have shown that tonal processes triggered by vowel deletion can be modeled using two logical operations: deassociation and reassociation. This approach captures a range of typological patterns while maintaining a simple and uniform representation. It provides both a theoretical unification and a computational foundation for modeling tonal phonology.
+
+\bibliographystyle{apalike}
+\bibliography{ref}
+\end{document}
