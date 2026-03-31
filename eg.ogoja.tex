@@ -21,9 +21,9 @@
 		\node (s2)[anchor=base] at (1, 0) {a} ; 
 		\node (ss)[anchor=base] at (1.3, 0) {chí} ; 
 		\node (gl1)[anchor=base] at (1.15, -.4) {grass} ; 
-        \node (t1) at (0,1) {L} ; 
+        \node [anchor=base, fill=black!30, inner sep=3.5pt] (t1) at (0,1) {L} ; 
         \node (t2) at (1,1) {H} ;
-        	\draw [dotted, thick] (s2) -- (t1) ;
+%        	\draw [dotted, thick] (s2) -- (t1) ;
 	\draw (s1) -- (t1) node[midway] {$=$} ;
 	\draw (s2) -- (t2) ;
 \end{tikzpicture}

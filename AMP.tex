@@ -1,29 +1,37 @@
 \documentclass{article}
 \input{format.tex}
-\title{Modeling Tonal Effects of Vowel Deletion as Logical Transductions}
-\author{Han Li}
+\title{\small \textbf{Modeling Tonal Effects of Vowel Deletion as Logical Transductions}}
+%\author{Han Li}
 \date{}
 
 \begin{document}
+
 \maketitle
+\vspace{-2.2cm}
+%\section{Introduction}
 
-\section{Introduction}
+\textbf{Introduction} This paper proposes a formal proposal to 
+model the tonal processes resulting from vowel deletion. 
+This paper proposes that tonal effects triggered by vowel 
+deletion can be reduced to two operations over association 
+relations: \textit{deassociation} and \textit{reassociation},
+which is consistent with the core idea of autosegmental phonology
+\citep{goldsmith1976} that prioeritize association lines modifcation
+rtanther rhan segmentalfeatural change. We show that these two 
+operations derive the major typological outcomes of vowel deletion, 
+and extend to less common cases such as vowel deletion blocking. 
+This provides a unified and computationally explicit account of 
+tonal processes that preserves structural representations while 
+modifying only association relations.
 
-Vowel hiatus is commonly resolved through processes such as vowel deletion or modification. In tonal languages, where vowels serve as tone-bearing units (TBUs), hiatus resolution often triggers changes in tone–vowel association. These include tone deletion, contour formation, and tone coalescence. While such patterns are difficult to capture in linear phonology, they are naturally represented in autosegmental phonology, where tones and TBUs are represented on separate tiers connected by association relations.
-
-This paper proposes that tonal effects triggered by vowel deletion can be reduced to two operations over association relations: \textit{deassociation} and \textit{reassociation}. We formalize these operations as logical transductions over autosegmental representations. We show that these two operations derive the major typological outcomes of vowel deletion, and extend to less common cases such as vowel deletion blocking. This provides a unified and computationally explicit account of tonal processes that preserves structural representations while modifying only association relations.
-
-\section{Typology}
-
-\citet{kao2017phonological} conducted a typological survey of 30 
-languages that exhibit vowel deletion as a strategy for hiatus 
-resolution, along with the resulting tonal processes. Of these, 
-28 are Niger-Congo languages and 2 are Nilo-Saharan. The survey
-finds that when vowel deletion leads to tone loss, 
-languages tend to preserve H tone or maintain faithfulness to 
-underlying associations. In cases of tone retention, contour 
-formation is the dominant outcome, although some languages 
-exhibit tonal coalescence as an alternative pattern.
+\textbf{Typology} \citet{kao2017phonological} conducted a 
+typological survey of 30 languages that exhibit vowel deletion 
+as a strategy for hiatus resolution, along with the resulting 
+tonal processes. When the vowel is deleted, the original tone
+that the deleted vowel is associated will undergo some re-arrangement
+due to the unassociated relation. The common cases are: 1) get deleted;
+2) get retented - either forma a contour with the adjacent tone or 
+replace the neightbor tone. See Table 1. 
 
 \begin{table*}[h]
 \centering
@@ -32,60 +40,59 @@ exhibit tonal coalescence as an alternative pattern.
 Process & Strategy & Language \\
 \midrule
 \multirow{3}{*}{Tone Deletion} 
-    & Tone quality (H)
+    & Tone quality (preferably keeps H tone)
     & 18 \\
-    & Association faithfulness 
+    & association faithfulness (perfer keeps whatever tone is intact)
     & 5\\
-    & Morphosyntax 
+    & Morphosyntax (depends on mohrpghlocial categories)
     & 1\\
 \midrule
 \multirow{3}{*}{Tone retention} 
-    & Contour formation
+    & Contour formation: form contour in linear order
     & 9 Ewe \\
-    & Tone Coalescence 
+    & Tone Coalescence: form 
     & 2 Moba, Yoruba \\
     & vowel blocking
     & 1 Ezinaihite Mbaise \\
 \bottomrule
 \end{tabular}
-%\caption{Typology of tonal processes triggered by vowel deletion}
+\caption{Typology of tonal processes triggered by vowel deletion}
 \end{table*}
-\begin{enumerate}
-\item \textbf{Tone deletion}: arises from deassociation without reassociation.
-\item \textbf{Contour formation}: arises from reassociation of a tone to an already-associated TBU.
-\item \textbf{Tone coalescence}: arises from reassociation combined with constraints on tonal sequences.
-\end{enumerate}
 
-These patterns follow from how association relations are updated after vowel deletion. Importantly, no changes to tonal or segmental features are required.
+\textbf{Logical Transduction of tonal process triggered by 
+vowel-deletion} 
 
-\section{Logical Transduction Framework}
 
-Following \citet{yolyan2025logical}, we model phonological mappings as 
-logical transductions over relational structures. Autosegmental 
-representations are encoded using a signature consisting of unary and 
-binary predicates:
 
-\begin{align*}
-H(x), L(x) &\quad \text{tone predicates} \\
-V(x) &\quad \text{vowel predicate} \\
-C(x) &\quad \text{consonant predicate} \\
-\lhd_T(x,y) &\quad \text{linear ordering on the tone tier} \\
-\lhd_S(x,y) &\quad \text{linear ordering on the segment tier} \\
-\alpha(x,y) &\quad \text{association relation}
-\end{align*}
-
-These predicates define the internal structure of autosegmental 
-representations. Individual structures can be viewed as models over this 
-signature, where elements are indexed and interpreted by the predicates. 
+\citet{yolyan2025logical} formalises the 
+phonological mappings as logical transductions over 
+relational structures. ARs are encoded using a signature 
+consisting of unary and binary predicates $M:=\{D|H,L,V,C, 
+\lhd_s, \lhd_T, \alpha\}$ As shown in Fig, these predicates 
+define the internal structure of ARs. Individual structures 
+can be viewed as models over this signature, where elements 
+are indexed and interpreted by the predicates. 
 For instance, a sequence such as H.L can be represented as a structure 
 with two tone elements ordered by $\lhd_T$, each associated via $\alpha$ 
 to corresponding vowels.
 
+%\begin{align*}
+%H(x), L(x) &\quad \text{tone predicates} \\
+%V(x) &\quad \text{vowel predicate} \\
+%C(x) &\quad \text{consonant predicate} \\
+%\lhd_T(x,y) &\quad \text{linear ordering on the tone tier} \\
+%\lhd_S(x,y) &\quad \text{linear ordering on the segment tier} \\
+%\alpha(x,y) &\quad \text{association relation}
+%\end{align*}
+
+
+
 \input{ARmodels.tex}
 
-Phonological mappings are then modeled as transformations between such 
-structures. Given an input model, the output model is defined by a new 
-interpretation of the predicates. Crucially, most structural relations 
+Phonological mappings are then modeled as \textbf{transformations} 
+between an input structure to an output structure. The output 
+model is defined by a new interpretation of the predicates. C
+rucially, most structural relations 
 remain unchanged; the primary modification concerns the association 
 relation $\alpha$.
 
@@ -165,16 +172,16 @@ In Engenni, the first vowel is always deleted along with the tone it's associate
 	\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \textsf{delete\_V}(y)
 \end{align*} 
 
-
-\subsection{Contour Formation in Etsako}
-\input{eg.ogoja.tex}
-\begin{align*}
-	\phi_{\textsf{license}}(x)& := \left( H(x) \lor L(x) \lor V(x)\right)  \land x \in \alpha \\
-	\textsf{delete\_V}(x) &:= \exists x' (V(x') \land \lhd (x,x') \\
-	\textsf{survive\_V}(x) &:= \exists x' (V(x') \land \lhd (x',x) \\	
-	\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \bigl(\textsf{delete\_V}(y) \lor \textsf{survive\_V}(y)\bigr)\\
-	\textsf{reassoc}(x,y) &:= \textsf{deassoc}(x,y) \land H(x) \land \textsf{survive\_V}(y)[fix!!]
-\end{align*}
+%
+%\subsection{Contour Formation in Etsako} [TO BE FIXED]
+%\input{eg.ogoja.tex}
+%\begin{align*}
+%	\phi_{\textsf{license}}(x)& := \left( H(x) \lor L(x) \lor V(x)\right)  \land x \in \alpha \\
+%	\textsf{delete\_V}(x) &:= \exists x' (V(x') \land \lhd (x,x') \\
+%	\textsf{survive\_V}(x) &:= \exists x' (V(x') \land \lhd (x',x) \\	
+%	\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \bigl(\textsf{delete\_V}(y) \lor \textsf{survive\_V}(y)\bigr)\\
+%	\textsf{reassoc}(x,y) &:= \textsf{deassoc}(x,y) \land H(x) \land \textsf{survive\_V}(y)[fix!!]
+%\end{align*}
 
 
 

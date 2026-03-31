@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.30)  30 MAR 2026 20:06
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.30)  31 MAR 2026 16:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1230,15 +1230,15 @@ LaTeX Font Info:    ... okay on input line 7.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* h-part:(L,W,R)=(36.135pt, 542.02501pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 722.7pt, 36.135pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=542.02501pt
+* \textheight=722.7pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1315,51 +1315,54 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/b/n on input line 7.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 8.
+(Font)              scaled to size 17.28pt on input line 9.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 8.
+(Font)              scaled to size 9.0pt on input line 9.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 9.0pt on input line 9.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 8.
+(Font)              scaled to size 12.0pt on input line 9.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 8.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
+(Font)              scaled to size 8.0pt on input line 9.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 10.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 10.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 14.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 54.
- [1
 
-] (/Users/hanli/Documents/GitHub/AMP2026/ARmodels.tex
-Overfull \hbox (1.58617pt too wide) detected at line 32
+LaTeX Warning: No \author given.
+
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 13.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
+(Font)              scaled to size 10.0pt on input line 17.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 38.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 38.
+(/Users/hanli/Documents/GitHub/AMP2026/ARmodels.tex
+Overfull \hbox (0.94135pt too wide) detected at line 32
 [][]
  []
 
 )
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 103.
- [2]
-Overfull \hbox (39.6767pt too wide) in paragraph at lines 127--147
- [][] 
- []
+(Font)              scaled to size 10.0pt on input line 110.
+ [1
 
+]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 163.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 157.
-(/Users/hanli/Documents/GitHub/AMP2026/eg.engenni.tex) (/Users/hanli/Documents/GitHub/AMP2026/eg.ogoja.tex [3]) (/Users/hanli/Documents/GitHub/AMP2026/eg.ogoja.tex) (/Users/hanli/Documents/GitHub/AMP2026/AMP.bbl) [4] (/Users/hanli/Documents/GitHub/AMP2026/AMP.aux)
+(Font)              scaled to size 14.4pt on input line 163.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 164.
+ (/Users/hanli/Documents/GitHub/AMP2026/eg.engenni.tex) [2] (/Users/hanli/Documents/GitHub/AMP2026/eg.ogoja.tex) (/Users/hanli/Documents/GitHub/AMP2026/AMP.bbl) [3] (/Users/hanli/Documents/GitHub/AMP2026/AMP.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1367,11 +1370,11 @@ L3 programming layer <2024-02-20>
  ) 
 Here is how much of TeX's memory you used:
  29876 strings out of 474773
- 646258 string characters out of 5757723
- 1958839 words of memory out of 5000000
+ 646303 string characters out of 5757723
+ 1945839 words of memory out of 5000000
  51567 multiletter control sequences out of 15000+600000
- 566757 words of font info for 115 fonts, out of 8000000 for 9000
+ 566830 words of font info for 117 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,17n,118p,1192b,804s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,17n,118p,1192b,802s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Users/hanli/Documents/GitHub/AMP2026/AMP.pdf (4 pages).
+Output written on /Users/hanli/Documents/GitHub/AMP2026/AMP.pdf (3 pages).
