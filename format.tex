@@ -2,6 +2,7 @@
 \usepackage{stackengine}
 \usepackage{tikz}
 \usetikzlibrary{fit}
+\usetikzlibrary{positioning}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage[margin=1in]{geometry}
@@ -45,19 +46,6 @@
 % ---------- Highlighting ----------
 % Highlights text with \hl{text}
 \usepackage{color, soul}
-
-% ---------- Trees ----------
-\usepackage[linguistics]{forest}
-% Formatting for nicer trees
-\forestset{
-  nice nodes/.style={
-    for tree={
-      inner sep=0pt,
-      fit=band,
-    },
-  },
-  default preamble=nice nodes,
-}
 
 % ---------- Examples ----------
 %% For numbered and glossed examples %%
