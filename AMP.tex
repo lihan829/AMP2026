@@ -1,6 +1,7 @@
 \documentclass{article}
 \input{format.tex}
-\title{\small \textbf{Modeling Tonal Effects of Vowel Deletion as Logical Transductions}}
+\title{\small \textbf{Modeling Tonal Effects of Vowel Deletion as Logical
+Transductions}}
 %\author{Han Li}
 \date{}
 
@@ -58,145 +59,140 @@ Process & Strategy & Language \\
 \end{tabular}
 \caption{Typology of tonal processes triggered by vowel deletion}
 \end{table*}
-
-\textbf{Logical Transduction of tonal process triggered by 
-vowel-deletion} 
-
-
-
-\citet{yolyan2025logical} formalises the 
-phonological mappings as logical transductions over 
-relational structures. ARs are encoded using a signature 
-consisting of unary and binary predicates $M:=\{D|H,L,V,C, 
-\lhd_s, \lhd_T, \alpha\}$ As shown in Fig, these predicates 
-define the internal structure of ARs. Individual structures 
-can be viewed as models over this signature, where elements 
-are indexed and interpreted by the predicates. 
-For instance, a sequence such as H.L can be represented as a structure 
-with two tone elements ordered by $\lhd_T$, each associated via $\alpha$ 
-to corresponding vowels.
-
-%\begin{align*}
-%H(x), L(x) &\quad \text{tone predicates} \\
-%V(x) &\quad \text{vowel predicate} \\
-%C(x) &\quad \text{consonant predicate} \\
-%\lhd_T(x,y) &\quad \text{linear ordering on the tone tier} \\
-%\lhd_S(x,y) &\quad \text{linear ordering on the segment tier} \\
-%\alpha(x,y) &\quad \text{association relation}
-%\end{align*}
-
-
+\paragraph{Logical Transduction of Tonal Processes Triggered by Vowel
+Deletion.}
+Following \citet{strother2019diss,yolyan2025logical},
+we represent a phonological representation as a relational structure
+$M := \{D \mid R\}$, where $D$ is a finite domain and $R$ is a set of
+relations.
+More specifically, an AR of a tonal melody such as H.L can be represented
+model-theoretically using a signature
+consisting of unary and binary predicates
+$R \in \{H, L, V, C, \lhd_s, \lhd_T, \alpha\}$,
+which define the internal structure of ARs.
+The binary predicates $\lhd_s(x,y)$ and $\lhd_T(x,y)$ refer to the
+successor relations, that is, $x$ immediately follows $y$ on the
+segmental tier and tonal tier, respectively.
+The predicate $\alpha(x,y)$ encodes the association relation,
+indicating that segment $x$ and tone $y$ are linked.These predicates, defined
+in model-theoretic terms, express exactly the
+same core ideas as autosegmental phonology \citep{goldsmith1976}, and reveal
+greater simplicity as we delve deeper into tonal processes.
 
 \input{ARmodels.tex}
+Building on this view, we define a phonological transformation 
+from an underlying representation (UR) to a surface 
+representation (SR) is modeled as a relation between input
+and output structures (see more in \citet{oakden2020notation}). 
+The signature of the output can be obtained by referring to
+the input signature. Formally, for any predicate $R(x)$ in the input signature,
+a faithful output predicate $R'$ is defined as $R'(x) := R(x)$,
+meaning that an element $x$ in the output domain has property $R$
+iff it has property $R$ in the input. A binary relation follows the
+same logic: $\lhd'(x,y) := \lhd(x,y)$
+means that $x$ immediately follows $y$ in the output if and only if
+it does so in the input.
 
-Phonological mappings are then modeled as \textbf{transformations} 
-between an input structure to an output structure. The output 
-model is defined by a new interpretation of the predicates. C
-rucially, most structural relations 
-remain unchanged; the primary modification concerns the association 
-relation $\alpha$.
-
-Formally, a logical transduction defines output predicates in terms of 
-input predicates:
-
-\begin{align*}
-H'(x) &:= H(x) \\
-L'(x) &:= L(x) \\
-V'(x) &:= V(x) \\
-\lhd_T'(x,y) &:= \lhd_T(x,y) \\
-\lhd_S'(x,y) &:= \lhd_S(x,y) \\
-\alpha'(x,y) &:= \bigl(\alpha(x,y) \land \neg \textsf{deassoc}(x,y)\bigr)
-                \lor \textsf{reassoc}(x,y)
-\end{align*}
-
-A core insight of autosegmental phonology \citep{goldsmith1976} is that 
-many tonal processes are more naturally modeled as modifications to 
-association relations rather than changes to segmental or featural 
-content. Building on this view, we treat association relations as being 
-governed by two operations: \textit{deassociation} and \textit{reassociation}, 
-defined below. In addition, the choice of which vowel is deleted or 
-survives is language-specific. Table~1 lists three common typological 
-patterns together with their logical formalizations. In what follows, we 
-refer to these conditions simply as \textsf{delete\_V} and 
-\textsf{survive\_V}.
-
-\begin{align*}
-\textsf{survive\_V}(x) &:= \exists x' \bigl(\textsf{delete\_V}(x') \land (\lhd(x,x') \lor \lhd(x',x))\bigr) \\
-\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \textsf{delete\_V}(y) \\
-\textsf{reassoc}(x,y) &:= \neg \alpha(x,y) \land \textsf{survive\_V}(y) \land
-\exists y' \bigl(\textsf{delete\_V}(y') \land \alpha(x,y')\bigr)
-\end{align*}
+\textbf{Our proposal} is that in vowel-deletion tonal processes,
+all relations in the AR model remain faithful, i.e. $H'(x) := H(x), 
+L'(x) := L(x)$ etc),
+\textbf{except for the $\alpha$ relation}. Specifically:
+\begin{enumerate}[noitemsep]
+    \item The output association is the product of three operations:
+    \textit{faithfulness}, \textit{deassociation}, and/or
+\textit{reassociation}:
+    \[
+    \alpha'(x,y) := \bigl(\alpha(x,y) \land \neg \textsf{deassoc}(x,y)\bigr)
+    \lor \textsf{reassoc}(x,y)
+    \]
+ \item Despite the name ``vowel deletion,'' no nodes or associations are
+removed from the domainl, but only elements
+    associated to at least one other element will be pronounced,
+    licensed by $\phi_{\textsf{license}}(x)$:
+    \[
+    \phi_{\textsf{license}}(x) := \exists y\, \alpha(x,y) (or ???\lor
+\alpha(y,x))
+    \]
+\item Deassociation and reassociation are language-specific, hinging
+on the choice of deleting/surviving vowel in the hiatus. For instance,
+in a language that deletes the first vowel and retains the second,
+$\textsf{delete\_V}(x) := \exists y\, \textsf{hiatus}(y,x)$
+and $\textsf{survive\_V}(x) := \exists y\, \textsf{hiatus}(x,y)$,
+    \[
+    \textsf{hiatus}(x,y):= V(x) \land V(y) \land \lhd_S(x,y)
+    \]
+\end{enumerate}
 
 
+\textbf{The analysis } gives three cases: tone deletion in Engenni, contour
+formation in Etsako, and a mix patterns in Ogoja Yala. All examples from
+\citet{kao2017phonological}. We only show the tonal processes at the edges
+due to the limited space. 
 
-\begin{table}[ht]
+\begin{table}[t]
 \centering
-\begin{tabular}{l l l}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+
+\begin{tabular}{l p{0.30\textwidth} p{0.48\textwidth}}
 \toprule
-Type & $\textsf{delete\_V}(x)$ & $\textsf{survive\_V}(x)$ \\
+\textbf{Pattern} & \textbf{AR} & \textbf{Logic} \\
 \midrule
 
-Left deletion &
-$\exists y \bigl(V(y) \land \lhd_S(y,x)\bigr)$ &
-%$V(x) \land \lhd (x, \textsf{delete\_V}(y) $ \\[6pt]
+Deletion &
+\begin{tikzpicture}[baseline=(s1.base), scale=0.8]
+  \node (s1)[anchor=base, fill=gray!20, inner sep=2pt] at (0,0) {V};
+  \node at (0.5,0) {\#};
+  \node (s2)[anchor=base] at (1,0) {V};
+  \node[fill=gray!20, inner sep=2pt] (t1) at (0,1) {T$_1$};
+  \node (t2) at (1,1) {T$_2$};
+  \draw (s1)--(t1); \draw (s2)--(t2);
+\end{tikzpicture}
+&
+$\textsf{delete\_V}(x)\!:=\!\exists y\,\textsf{hiatus}(x,y);\;
+\textsf{deassoc}(x,y)\!:=\!\alpha(x,y)\land \textsf{delete\_V}(y)$
 \\
-Right deletion &
-$\exists y \bigl(V(y) \land \lhd_S(x,y)\bigr)$ &
-%$V(x) \land \neg \exists y \bigl(V(y) \land \lhd_S(x,y)\bigr)$ \\[6pt]
+
+Retention &
+\begin{tikzpicture}[baseline=(s1.base), scale=0.8]
+  \node (s1)[anchor=base, fill=gray!20, inner sep=2pt] at (0,0) {V};
+  \node at (0.5,0) {\#};
+  \node (s2)[anchor=base] at (1,0) {V};
+  \node (t1) at (0,1) {T$_1$};
+  \node (t2) at (1,1) {T$_2$};
+  \draw (s1)--(t1); \draw (s2)--(t2);
+  \draw[dotted] (s2)--(t1);
+\end{tikzpicture}
+&
+$\textsf{delete\_V}(x)\!:=\!\exists y\,\textsf{hiatus}(x,y);\;
+\textsf{deassoc}(x,y)\!:=\!\alpha(x,y)\land \textsf{delete\_V}(y);\;
+\textsf{reassoc}(x,y)\!:=\!\textsf{survive\_V}(x)\land \exists
+z\,\alpha(y,z)\land \textsf{delete\_V}(z)$
 \\
-Contextual deletion &
-$a(x) \land \exists y \bigl(V(y) \land (\lhd_S(y,x) \lor \lhd_S(x,y))\bigr)$ where
-a(x) indicates particular property &
-%$V(x) \land \neg \bigl[a(x) \land \exists y \bigl(V(y) \land (\lhd_S(y,x) \lor \lhd_S(x,y))\bigr)\bigr]$ \\
+
+Shift &
+\begin{tikzpicture}[baseline=(s1.base), scale=0.8]
+  \node (s1)[anchor=base, fill=gray!20, inner sep=2pt] at (0,0) {V};
+  \node at (0.5,0) {\#};
+  \node (s2)[anchor=base] at (1,0) {V};
+  \node (t1) at (0,1) {T$_1$};
+  \node[fill=gray!20, inner sep=2pt] (t2) at (1,1) {T$_2$};
+  \draw (s1)--(t1); \draw (s2)--(t2);
+  \draw[dotted] (s2)--(t1);
+\end{tikzpicture}
+&
+$\textsf{delete\_V}(x)\!:=\!\exists y\,\textsf{hiatus}(x,y);\;
+\textsf{deassoc}(x,y)\!:=\!\alpha(x,y)\land(\textsf{delete\_V}(y)\lor
+\textsf{survive\_V}(y));\;
+\textsf{reassoc}(x,y)\!:=\!\textsf{survive\_V}(x)\land \exists
+z\,\alpha(y,z)\land \textsf{delete\_V}(z)$
 \\
+
 \bottomrule
 \end{tabular}
-\caption{Language-specific vowel deletion and survival conditions}
+\caption{Tonal processes triggered by vowel deletion}
 \end{table}
-
-Thus, the transduction preserves all structural relations except for 
-$\alpha$, which is updated through deassociation and reassociation. 
-This captures the intuition that tonal processes triggered by vowel 
-deletion operate by modifying association relations rather than altering 
-segmental or tonal features.
-
-\section{Language Examples}
-\subsection{Tone deletion in Engenni}
-In Engenni, the first vowel is always deleted along with the tone it's associated. 
-\input{eg.engenni.tex}
-
-\begin{align*}
-	\phi_{\textsf{license}}(x)& := \left( H(x) \lor L(x) \lor V(x)\right)  \land x \in \alpha \\
-	\textsf{delete\_V}(x) &:= \exists x' (V(x') \land \lhd (x,x') \\
-%	\textsf{survive\_V}(x) &:= \exists x' (V(x') \land \lhd (x',x) \\
-	\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \textsf{delete\_V}(y)
-\end{align*} 
-
-%
-%\subsection{Contour Formation in Etsako} [TO BE FIXED]
-%\input{eg.ogoja.tex}
-%\begin{align*}
-%	\phi_{\textsf{license}}(x)& := \left( H(x) \lor L(x) \lor V(x)\right)  \land x \in \alpha \\
-%	\textsf{delete\_V}(x) &:= \exists x' (V(x') \land \lhd (x,x') \\
-%	\textsf{survive\_V}(x) &:= \exists x' (V(x') \land \lhd (x',x) \\	
-%	\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \bigl(\textsf{delete\_V}(y) \lor \textsf{survive\_V}(y)\bigr)\\
-%	\textsf{reassoc}(x,y) &:= \textsf{deassoc}(x,y) \land H(x) \land \textsf{survive\_V}(y)[fix!!]
-%\end{align*}
-
-
-
-
-\subsection{Mix Pattern in Ogoja Yala}
-\input{eg.ogoja.tex}
-\begin{align*}
-	\phi_{\textsf{license}}(x)& := \left( H(x) \lor L(x) \lor V(x)\right)  \land x \in \alpha \\
-	\textsf{delete\_V}(x) &:= \exists x' (V(x') \land \lhd (x,x') \\
-	\textsf{survive\_V}(x) &:= \exists x' (V(x') \land \lhd (x',x) \\	
-	\textsf{deassoc}(x,y) &:= \alpha(x,y) \land \textsf{delete\_V}(y)\\
-	\textsf{reassoc}(x,y) &:= \textsf{deassoc}(x,y) \land (H(x) \lor L(x)) \land \textsf{survive\_V}(y)[fix!!]
-\end{align*}
-
-
 
 \bibliographystyle{apalike}
 \bibliography{ref}

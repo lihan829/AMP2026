@@ -1,9 +1,10 @@
-\begin{figure}[ht]
-\centering
+\begin{wraptable}{r}{0.35\textwidth}
+%\centering
+\vspace{-1.2cm}
 \begin{tabular}{>{\centering\arraybackslash}m{3cm}
-                >{\centering\arraybackslash}m{3cm}
-                >{\centering\arraybackslash}m{3cm}
-                >{\centering\arraybackslash}m{3cm}}
+%                >{\centering\arraybackslash}m{3cm}
+%                >{\centering\arraybackslash}m{3cm}
+                >{\centering\arraybackslash}m{1cm}}
 
 % Graph 1
 \begin{tikzpicture}
@@ -30,33 +31,30 @@ V &= \{3,4\} \\
 \alpha &= \{(1,3),(2,4)\}
 \end{aligned}
 \]
-
-&
-
-% Graph 2
-\begin{tikzpicture}
-\node[circle, draw] (t1) at (0,1.5) {1\textsubscript{T}};
-\node[circle, draw] (t2) at (2,1.5) {2\textsubscript{T}};
-\node[circle, draw, dotted] (v1) at (0,0) {3\textsubscript{V}};
-\node[circle, draw] (v2) at (2,0) {4\textsubscript{V}};
-\draw[dotted] (t1) -- node[midway] {$=$} (v1);
-\draw[dotted, thick] (t1) -- node[midway, left] {$\alpha$} (v2);
-\draw[] (t1) -- node[midway, above] {$\lhd$} (t2);
-\draw (t2) -- node[midway, left] {$\alpha$} (v2);
-\draw[dotted] (v1) -- node[midway, above] {$$} (v2);
-\end{tikzpicture}
-
-&
-
-% Structure 2
-\[
-\begin{aligned}
-\mathcal{D} &= \{2,4\} \\
-T &= \{2\} \\
-V &= \{4\} \\
-\alpha &= \{(1,4), (2,4)\}
-\end{aligned}
-\]
-
+%
+%&
+%&
+%% Graph 2
+%\[
+%\begin{aligned}
+%H'(x) &:= H(x) \\
+%L'(x) &:= L(x) \\
+%V'(x) &:= V(x) \\
+%\lhd_T'(x,y) &:= \lhd_T(x,y) \\
+%\lhd_S'(x,y) &:= \lhd_S(x,y) \\
+%\alpha'(x,y) &:= \bigl(\alpha(x,y) \land \neg \textsf{deassoc}(x,y)\bigr)\lor
+%\textsf{reassoc}(x,y)
+%\end{aligned}
+%\]
+%% Structure 2
+%%\[
+%%\begin{aligned}
+%%\mathcal{D} &= \{2,4\} \\
+%%T &= \{2\} \\
+%%V &= \{4\} \\
+%%\alpha &= \{(1,4), (2,4)\}
+%%\end{aligned}
+%%\]
 \end{tabular}
-\end{figure}
+\vspace{-1.2cm}
+\end{wraptable}
