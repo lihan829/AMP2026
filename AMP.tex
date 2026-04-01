@@ -101,26 +101,26 @@ L'(x) := L(x)$ etc),
     \item The output association is the product of three operations:
     \textit{faithfulness}, \textit{deassociation}, and/or
 \textit{reassociation}:
-    \[
-    \alpha'(x,y) := \bigl(\alpha(x,y) \land \neg \textsf{deassoc}(x,y)\bigr)
-    \lor \textsf{reassoc}(x,y)
-    \]
+	\begin{equation}
+		\alpha'(x,y) := \bigl(\alpha(x,y) \land \neg \textsf{deassoc}(x,y)\bigr)
+		\lor \textsf{reassoc}(x,y)
+		\label{eq:alpha-update}
+	\end{equation}
  \item Despite the name ``vowel deletion,'' no nodes or associations are
 removed from the domainl, but only elements
-    associated to at least one other element will be pronounced,
     licensed by $\phi_{\textsf{license}}(x)$:
-    \[
+	\begin{equation}
     \phi_{\textsf{license}}(x) := \exists y\, \alpha(x,y) (or ???\lor
 \alpha(y,x))
-    \]
+	\end{equation}
 \item Deassociation and reassociation are language-specific, hinging
 on the choice of deleting/surviving vowel in the hiatus. For instance,
 in a language that deletes the first vowel and retains the second,
 $\textsf{delete\_V}(x) := \exists y\, \textsf{hiatus}(y,x)$
 and $\textsf{survive\_V}(x) := \exists y\, \textsf{hiatus}(x,y)$,
-    \[
+	\begin{equation}
     \textsf{hiatus}(x,y):= V(x) \land V(y) \land \lhd_S(x,y)
-    \]
+    	\end{equation}
 \end{enumerate}
 
 
@@ -129,71 +129,40 @@ formation in Etsako, and a mix patterns in Ogoja Yala. All examples from
 \citet{kao2017phonological}. We only show the tonal processes at the edges
 due to the limited space. 
 
-\begin{table}[t]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.1}
+\input{tab.all.tex}
 
-\begin{tabular}{l p{0.30\textwidth} p{0.48\textwidth}}
-\toprule
-\textbf{Pattern} & \textbf{AR} & \textbf{Logic} \\
-\midrule
+\textbf{(a) Deletion in Engenni}.
+In hiatus contexts, the first vowel in Engenni is always deleted, 
+along with the tone associated with that vowel. This process can 
+be handled by a single operation, \textsf{deassoc}. The operation 
+removes any association line that connects to a deleted vowel. 
+Following (1), the deassociated vowel and tone (the highlighted 
+elements) do not appear in the association relation in the output
+model signature. Since both elements are left unassociated, they 
+are not licensed by (2). All other relations remain unchanged.
 
-Deletion &
-\begin{tikzpicture}[baseline=(s1.base), scale=0.8]
-  \node (s1)[anchor=base, fill=gray!20, inner sep=2pt] at (0,0) {V};
-  \node at (0.5,0) {\#};
-  \node (s2)[anchor=base] at (1,0) {V};
-  \node[fill=gray!20, inner sep=2pt] (t1) at (0,1) {T$_1$};
-  \node (t2) at (1,1) {T$_2$};
-  \draw (s1)--(t1); \draw (s2)--(t2);
-\end{tikzpicture}
-&
-$\textsf{delete\_V}(x)\!:=\!\exists y\,\textsf{hiatus}(x,y);\;
-\textsf{deassoc}(x,y)\!:=\!\alpha(x,y)\land \textsf{delete\_V}(y)$
-\\
+\textbf{(b) Contour Formation in Estako}.
+In Estako, the first vowel is deleted, but its tone shifts to the 
+surviving vowel and form a contour tone with the tone that the 
+surviving vowel originally hosts. (The contour follows the linear 
+order on the tonal tier). This process can be captured using the 
+same \textsf{deassoc} operation to break the association between 
+the deleted vowel and its tone. Then, a \textsf{reassoc} function 
+connects the tone to the surviving vowel. Since the deleted vowel 
+is the only unit that is left unassociated, it is the only element 
+that is not licensed and therefore does not surface.
 
-Retention &
-\begin{tikzpicture}[baseline=(s1.base), scale=0.8]
-  \node (s1)[anchor=base, fill=gray!20, inner sep=2pt] at (0,0) {V};
-  \node at (0.5,0) {\#};
-  \node (s2)[anchor=base] at (1,0) {V};
-  \node (t1) at (0,1) {T$_1$};
-  \node (t2) at (1,1) {T$_2$};
-  \draw (s1)--(t1); \draw (s2)--(t2);
-  \draw[dotted] (s2)--(t1);
-\end{tikzpicture}
-&
-$\textsf{delete\_V}(x)\!:=\!\exists y\,\textsf{hiatus}(x,y);\;
-\textsf{deassoc}(x,y)\!:=\!\alpha(x,y)\land \textsf{delete\_V}(y);\;
-\textsf{reassoc}(x,y)\!:=\!\textsf{survive\_V}(x)\land \exists
-z\,\alpha(y,z)\land \textsf{delete\_V}(z)$
-\\
-
-Shift &
-\begin{tikzpicture}[baseline=(s1.base), scale=0.8]
-  \node (s1)[anchor=base, fill=gray!20, inner sep=2pt] at (0,0) {V};
-  \node at (0.5,0) {\#};
-  \node (s2)[anchor=base] at (1,0) {V};
-  \node (t1) at (0,1) {T$_1$};
-  \node[fill=gray!20, inner sep=2pt] (t2) at (1,1) {T$_2$};
-  \draw (s1)--(t1); \draw (s2)--(t2);
-  \draw[dotted] (s2)--(t1);
-\end{tikzpicture}
-&
-$\textsf{delete\_V}(x)\!:=\!\exists y\,\textsf{hiatus}(x,y);\;
-\textsf{deassoc}(x,y)\!:=\!\alpha(x,y)\land(\textsf{delete\_V}(y)\lor
-\textsf{survive\_V}(y));\;
-\textsf{reassoc}(x,y)\!:=\!\textsf{survive\_V}(x)\land \exists
-z\,\alpha(y,z)\land \textsf{delete\_V}(z)$
-\\
-
-\bottomrule
-\end{tabular}
-\caption{Tonal processes triggered by vowel deletion}
-\end{table}
-
+\textbf{(c) Mixed Pattern in Ogja Yala}. Ogoja Yala serves as a strong
+evidence for the autosegmental nature of tonal language. As before, 
+the first vowel is deleted, but the choice of surviving tone is 
+sensitive to the tone quality: only H tone is retained. The retained
+H tone will either (1) replace the tone of the surviving tone or (2)
+stay as it is. In this case, the \textsf{deassoc} operation will break 
+the association between the deleted vowel, as before. The \textsf{reassoc} 
+operation, however, has to be made sensitive to the tone quality. this
+reads as "reassociate the surviving vowel, only if there is the deleted
+vowel has previously associated with a H tone. 
+\newpage
 \bibliographystyle{apalike}
 \bibliography{ref}
 \end{document}

@@ -1,0 +1,109 @@
+\begin{table}[ht]
+\centering
+%\footnotesize
+%\setlength{\tabcolsep}{4pt}
+%\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.3\textwidth}|
+>{\centering\arraybackslash}m{0.1\textwidth}|
+>{\centering\arraybackslash}m{0.5\textwidth}
+}
+\toprule
+\textbf{Language} & \textbf{AR} & \textbf{Logic} \\
+\midrule
+\begin{tabular}{cll}
+\multicolumn{3}{c}{\textbf{Tone Deletion in Engenni}}\\
+/\` ɔkò \# édèì/ & $\rightarrow$ & /\` ɔkédèì/ \\
+\footnotesize man \; canoe & & a \footnotesize man's canoe\\
+/fùnú \# èdhí/ & $\rightarrow$ & /fùnèdhí/\\
+\footnotesize climb \; palm tree && \footnotesize to climb a palm tree
+\end{tabular}
+&
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.8]
+  \node (s1)[fill=gray!20, inner sep=2pt] at (0,0) {V};
+%  \node at (0.5,0) {\#};
+  \node (s2) at (1,0) {V};
+  \node[fill=gray!20, inner sep=2pt] (t1) at (0,1) {T$_1$};
+  \node (t2) at (1,1) {T$_2$};
+  \draw (s1)--(t1)node[midway] {=};
+  \draw (s2)--(t2);
+\end{tikzpicture}
+&
+\vspace{1.5em}
+\makecell[l]{
+$\textsf{delete\_V}(x):=\exists y\,\textsf{hiatus}(x,y)$\\
+$\textsf{deassoc}(x,y):=\alpha(x,y)\land \textsf{delete\_V}(y)$
+}
+\\
+\midrule
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{\textbf{Contour Formation in Estako}}\\
+/ówà \# ówà/ & $\rightarrow$ & /ów\textbf{ǒ}wà/\\
+\footnotesize  house house & & \footnotesize every house\\
+
+/\` ɔ \# dé \# àkpà/ & $\rightarrow$ & /\` ɔd\textbf{â}kpà/\\
+\footnotesize he \;buy \; cup & &\footnotesize he buys a cup
+\end{tabular}
+&
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.8]
+  \node (s1)[fill=gray!20, inner sep=2pt] at (0,0) {V};
+%  \node at (0.5,0) {\#};
+  \node (s2) at (1,0) {V};
+  \node (t1) at (0,1) {T$_1$};
+  \node (t2) at (1,1) {T$_2$};
+  \draw (s1)--(t1) node[midway] {=};
+  \draw (s2)--(t2);
+  \draw[dotted] (s2)--(t1);
+\end{tikzpicture}
+&
+\vspace{1.5em}
+\makecell[l]{
+$\textsf{delete\_V}(x):=\exists y\,\textsf{hiatus}(x,y)$\\
+$\textsf{deassoc}(x,y):=\alpha(x,y)\land \textsf{delete\_V}(y)$\\
+$\textsf{reassoc}(x,y):=\textsf{survive\_V}(x)\land
+\exists z\,\alpha(y,z)\land \textsf{delete\_V}(z)$
+}
+\\
+\midrule
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{\textbf{Mixed Pattern in Ogoja Yala}}\\
+&&\\
+/dè \# áchí/ & $\rightarrow$ & [dáchí]\\
+/má \# \` ɔhí/ & $\rightarrow$ & [m\'ɔchí]\\
+\end{tabular}
+&
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.8]
+  \node (s1)[fill=gray!20, inner sep=2pt] at (0,0) {V};
+%  \node at (0.5,0) {\#};
+  \node (s2) at (1,0) {V};
+  \node (t1) at (0,1) {H};
+  \node[fill=gray!20, inner sep=2pt] (t2) at (1,1) {L};
+   \node (xx) at (0,-.5) {};
+  \draw (s1)--(t1) node[midway] {=}; 
+  \draw (s2)--(t2) node[midway] {=}; 
+  \draw[dotted] (s2)--(t1);
+\end{tikzpicture}
+
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.8]
+  \node (s1)[fill=gray!20, inner sep=2pt] at (0,0) {V};
+%  \node at (0.5,0) {\#};
+  \node (s2) at (1,0) {V};
+  \node [fill=gray!20, inner sep=2pt] (t1) at (0,1) {L};
+  \node (t2) at (1,1) {H};
+  \draw (s1)--(t1) node[midway] {=};
+  \draw (s2)--(t2);
+%  \draw[dotted] (s2)--(t1);
+\end{tikzpicture}
+&
+\vspace{2em}
+\makecell[l]{
+$\textsf{delete\_V}(x):=\exists y\,\textsf{hiatus}(x,y)$\\
+$\textsf{deassoc}(x,y):=\alpha(x,y)\land
+\textsf{delete\_V}(y)$\\
+$\textsf{reassoc}(x,y):=\textsf{survive\_V}(x)\land
+\exists z\, \bigl( \alpha(y,z)\land \textsf{H}(y) \land \textsf{delete\_V}(z)\bigr)$
+}\\
+\bottomrule
+\end{tabular}
+\caption{Tonal processes triggered by vowel deletion}
+\end{table}
