@@ -1,59 +1,60 @@
-% ---------- Core ----------
-\usepackage{stackengine}
-\usepackage{tikz}
-\usetikzlibrary{fit}
-\usetikzlibrary{positioning}
-\usepackage{multirow}
-\usepackage{multicol}
-\usepackage{enumitem}
-\usepackage[margin=0.5in]{geometry}
-\usepackage{makecell}
-% ---------- Text formatting ----------
-% Gives some extra formatting options, e.g. underlining/strikeout
-\usepackage{ulem}
+% ---------- Page layout ----------
+\usepackage[margin=1in]{geometry}
 \usepackage{setspace}
-\onehalfspacing
-\usepackage{array}
-\usepackage{tipa}
-% Paragraph formatting
-\usepackage[parfill]{parskip}
-%\setlength{\parskip}{5pt} % plus 1 minus 1}
-%\setlength{\parindent}{30pt}
-
-\usepackage{titlesec}
-
-
-% ---------- Math & symbols ----------
-% Basic math symbols
-\usepackage{pifont}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\newcommand{\defeq}{\mathrel{:=}}
-%%% Gives shortcuts for glossing (optional)
-% \usepackage{leipzig}
-
-% ---------- Tables ----------
-\usepackage{caption}   % For table captions
-\usepackage{booktabs}  % Helps format tables
-\usepackage{wrapfig}
-
-% ---------- Citations ----------
-\usepackage{natbib}
+\singlespacing
 
 % ---------- Fonts ----------
 \usepackage{libertine}
-% A font that actually contains many IPA symbols.
 
-% Note: if using system fonts, compile with XeLaTeX
+% ---------- Core ----------
+\usepackage{tikz}
+\usetikzlibrary{fit,positioning}
+\usepackage{stackengine}
 
-% ---------- Highlighting ----------
-% Highlights text with \hl{text}
-\usepackage{color, soul}
+% ---------- General formatting ----------
+\usepackage[normalem]{ulem}
+\usepackage[parfill]{parskip}
+\usepackage{titlesec}
+\usepackage{makecell}
+\usepackage{wrapfig}
 
-% ---------- Examples ----------
-%% For numbered and glossed examples %%
+% ---------- Tables ----------
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{caption}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+
+% ---------- Math & symbols ----------
+\usepackage{amsmath,amssymb}
+\usepackage{pifont}
+\usepackage{tipa}
+\newcommand{\defeq}{\mathrel{:=}}
+
+% ---------- Highlighting / colors ----------
+\usepackage{xcolor}
+\usepackage{soul}
+
+% ---------- Linguistics examples ----------
 \usepackage{gb4e}
 
-%%%%%%%%%%%%
-%% End of PREAMBLE
-%%%%%%%%%%%%
+% ---------- Citations ----------
+\usepackage{natbib}
+%\bibliographystyle{apalike}
+ 
+% ---------- Compact Title (for conference) ---------- 
+ \makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\large\bfseries \@title \par} % change size here
+    \vspace{0.5em}
+    {\normalsize \@author \par}
+    \vspace{0.5em}
+    {\small \@date \par}
+  \end{center}
+  \vspace{1em}
+}
+\makeatother
