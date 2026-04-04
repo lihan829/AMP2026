@@ -1,0 +1,52 @@
+\begin{wraptable}{l}{0.65\textwidth}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+
+\begin{tabular}{l}
+\toprule
+\textbf{Transduction} \\
+\midrule
+
+\(
+\begin{aligned}
+\phi_{\textsf{license}}(x) 
+  &:= \exists y\, \alpha(x,y) \\[3pt]
+
+R'(x) 
+  &:= R(x) \quad \forall R \in \Sigma \\
+
+\lhd'(x,y) 
+  &:= \lhd(x,y) \\[3pt]
+
+\textsf{deassoc}(x,y) 
+  &:= \alpha(x,y)\land \textsf{delete\_V}(y) \\[3pt]
+
+\alpha'(x,y) 
+  &:= \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr) \lor \textsf{reassoc}(x,y) \\[4pt]
+
+\textsf{reassoc}(x,y) 
+  &:=
+  \begin{cases}
+    \bot
+    & \text{Engenni} \\
+
+    \textsf{survive\_V}(x)\land
+    \exists z\,(\alpha(y,z)\land \textsf{delete\_V}(z))
+    & \text{Estako} \\
+
+    \textsf{survive\_V}(x)\land
+    \exists z\,(\alpha(y,z)\land \textsf{delete\_V}(z)\land H(y))
+    & \text{Ogoja Yala}
+  \end{cases}
+\end{aligned}
+\)
+
+\\
+\bottomrule
+\end{tabular}
+
+\caption{Unified transduction for vowel-deletion tonal processes. Only $\alpha$ is modified via language-specific reassociation.}
+\label{tab.transduction}
+\end{wraptable}
