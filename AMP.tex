@@ -55,7 +55,7 @@ originally linked to that vowel.
 \z
 
 
-\ea \textbf{Ogoja Yala (selective tone preservation):} 
+\ea \textbf{Ogoja Yala (H-tone preservation):} 
 Only H tones are preserved. The retained H either replaces 
 the tone of the surviving vowel or remains unchanged.
 \vspace{-1em}\begin{multicols}{2}
@@ -113,46 +113,69 @@ for $\alpha$, which is subject to language-specific
 \alpha'(x,y) := \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr)
 \lor \textsf{reassoc}(x,y)
 \). The deleted units remains in the domain 
-but are not realized at the surface, since a licensing function $\phi_{\textsf{license}}$  restricts realization to associated units.
-The full set of transduction definitions is provided in Table~\ref{tab.transduction}.
+but are not realized at the surface, since a licensing function 
+$\phi_{\textsf{license}}$  restricts realization to associated units.
 
 \input{tab.transduction.tex}
-As shown in Table~\ref{tab:transduction}, the 
-\textsf{deassoc} operation always removes the association 
-between the deleting vowel (i.e., the first vowel in a hiatus) 
-and its associated tone. The language-specific 
-\textsf{reassoc} operation then determines the outcome: it may 
-be inactive, reattach the surviving tone to the surviving vowel, 
-or impose additional restrictions based on tonal features.
+Table~\ref{tab.transduction} lists all transductions from input 
+to output. The licensing function ensures that only associated 
+(i.e., fully specified) units surface in the SR. All unary 
+relations are preserved from UR to SR, as is the successor 
+relation $\lhd$. 
 
-\textbf{(a) Deletion in Engenni} can 
-be handled by a single operation, \textsf{deassoc}. The operation 
-removes any association line that connects to a deleted vowel. 
-Following (1), the deassociated vowel and tone (the highlighted 
-elements) do not appear in the association relation in the output
-model signature. Since both elements are left unassociated, they 
-are not licensed by (2). All other relations remain unchanged.
+The output association relation $\alpha'$ is defined as follows: 
+an association line holds in the output if (i) it is present 
+in the input and not removed by \textsf{deassoc}, or (ii) it is 
+introduced by \textsf{reassoc}. Concretely, \textsf{deassoc} 
+removes the association between the deleted vowel and its tone. 
+The language-specific \textsf{reassoc} operation then determines 
+the outcome: it may be inactive (Engenni), reattach the tone to 
+the surviving vowel (Estako), or rearrange association depends
+on the tone quality (Ogoja Yala).
 
-\textbf{(b) Contour Formation in Estako} can be captured using the 
-same \textsf{deassoc} operation to break the association between 
-the deleted vowel and its tone. Then, a \textsf{reassoc} function 
-connects the tone to the surviving vowel. Since the deleted vowel 
-is the only unit that is left unassociated, it is the only element 
-that is not licensed and therefore does not surface.
+\input{tab.all.tex} 
+\textbf{(a) Tone deletion in Engenni} is derived by a single operation, 
+\textsf{deassoc}, which deassociates the deleted 
+vowel and its tone (indicated by the crossed-out line). This leaves 
+both $T_1$ and $V_1$ unassociated. Since \textsf{reassoc} is inactive, 
+no new association is formed. Consequently, $T_1$ and $V_1$ remain 
+unassociated, therefore are not licensed by $\Phi_{license}$ (indicated in gray). As a result, only the second tone and vowel will surface.
 
-\textbf{(c) Mixed Pattern in Ogja Yala}. Ogoja Yala serves as a strong
-evidence for the autosegmental nature of tonal language. As before, 
-the first vowel is deleted, but the choice of surviving tone is 
-sensitive to the tone quality: only H tone is retained. The retained
-H tone will either (1) replace the tone of the surviving tone or (2)
-stay as it is. In this case, the \textsf{deassoc} operation will break 
-the association between the deleted vowel, as before. The \textsf{reassoc} 
-operation, however, has to be made sensitive to the tone quality. this
-reads as "reassociate the surviving vowel, only if there is the deleted
-vowel has previously associated with a H tone. 
+\textbf{(b) Contour formation in Estako} is derived by the same 
+\textsf{deassoc} operation. The \textsf{reassoc} operation then 
+links the tone of the deleted vowel ($T_1$) to the surviving 
+vowel ($V_2$). As a result, $V_2$ becomes associated with both 
+$T_1$ and $T_2$, which forms a contour tone. At this stage, the 
+only unassociated unit is $V_1$, which is therefore not licensed.
+The surface form thus consists of the surviving vowel bearing 
+a contour tone.
 
+\textbf{(c) Mixed pattern in Ogoja Yala} provides strong evidence 
+for the autosegmental nature of tone. From a logical perspective, 
+the process closely parallels those in Engenni and Estako, with 
+one key difference: \textsf{reassoc} applies only to H tones. 
 
-\bibliography{ref.bib}
+If the deleted vowel $V_1$ is associated with a L tone, 
+then it patterns with Engenni: only \textsf{deassoc} applies and 
+\textsf{reassoc} remains inactive, leaving both elements 
+unassociated and therefore not licensed. If the deleted vowel has 
+an H tone, the process resembles Estako: the H tone reassociates 
+to the surviving vowel ($V_2$), forming a contour tone. 
+
+\textbf{Conclusion} This paper has argued that vowel-deletion–induced 
+tonal processes can be uniformly captured as logical transductions 
+over autosegmental representations (ARs). The observed typological 
+variation follows from modifying a single relation, $\alpha$, through 
+the interaction of \textsf{deassoc} and \textsf{reassoc}. A limitation of the current analysis is that the transduction relies 
+on quantification to capture across-tier dependencies. An important 
+direction for future work is to determine whether these processes can 
+be simplified in a quantifier-free (QF) process.
+This work also extends naturally to learning over ARs. Recent work 
+by \citet{yolyan2025logical} demonstrates that logical transductions 
+are learnable by using a bottom-up factorial inference algorithms \citep{chandleeBufia2019}. 
+\vfill
+
 \bibliographystyle{apalike}
+\bibliography{ref}
 
 \end{document}

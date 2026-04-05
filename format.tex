@@ -42,9 +42,10 @@
 \usepackage{gb4e}
 
 % ---------- Citations ----------
+%\usepackage{natbib}
 \usepackage{natbib}
 %\bibliographystyle{apalike}
- 
+ \usepackage{paralist}
 % ---------- Compact Title (for conference) ---------- 
  \makeatletter
 \renewcommand{\maketitle}{
@@ -57,4 +58,11 @@
   \end{center}
   \vspace{1em}
 }
+\makeatother
+
+\makeatletter
+\renewenvironment{thebibliography}[1]
+	{\textsc{\textbf{References}}      \small
+   \begin{inparaitem}[]\footnotesize \let\par\relax\newblock\relax}
+  {\end{inparaitem}}
 \makeatother

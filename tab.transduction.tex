@@ -1,9 +1,6 @@
-\begin{wraptable}{l}{0.65\textwidth}
+\begin{wraptable}{l}{0.68\textwidth}
 \centering
 \footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.1}
-
 \begin{tabular}{l}
 \toprule
 \textbf{Transduction} \\
@@ -12,19 +9,20 @@
 \(
 \begin{aligned}
 \phi_{\textsf{license}}(x) 
-  &:= \exists y\, \alpha(x,y) \\[3pt]
+  &:= \exists y\, \alpha(x,y) \\
 
 R'(x) 
   &:= R(x) \quad \forall R \in \Sigma \\
 
 \lhd'(x,y) 
-  &:= \lhd(x,y) \\[3pt]
+  &:= \lhd(x,y) \\
 
-\textsf{deassoc}(x,y) 
-  &:= \alpha(x,y)\land \textsf{delete\_V}(y) \\[3pt]
 
 \alpha'(x,y) 
-  &:= \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr) \lor \textsf{reassoc}(x,y) \\[4pt]
+  &:= \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr) \lor \textsf{reassoc}(x,y) \\
+
+\textsf{deassoc}(x,y) 
+  &:= \alpha(x,y)\land \textsf{delete\_V}(y) \\
 
 \textsf{reassoc}(x,y) 
   &:=
@@ -42,11 +40,10 @@ R'(x)
   \end{cases}
 \end{aligned}
 \)
-
 \\
 \bottomrule
 \end{tabular}
-
-\caption{Unified transduction for vowel-deletion tonal processes. Only $\alpha$ is modified via language-specific reassociation.}
+\caption{}
+\vspace{-0.5cm}
 \label{tab.transduction}
 \end{wraptable}

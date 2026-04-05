@@ -1,68 +1,55 @@
-\begin{table}[ht]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.1}
-
-\begin{tabular}{c c c}
+\begin{wraptable}{l}{0.25\textwidth}
+\vspace{-1em}
+\begin{tabular}{c|c}
 \toprule
-\textbf{Engenni} & \textbf{Estako} & \textbf{Ogoja Yala} \\
+\textbf{Engenni} & \textbf{Estako} \\
 \midrule
 
-% --- ROW 1: PATTERNS ---
 \begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
-  \node[fill=gray!20] (s1) at (0,0) {V};
-  \node (s2) at (1,0) {V};
-  \node[fill=gray!20] (t1) at (0,1) {$T_1$};
-  \node (t2) at (1,1) {$T_2$};
-  \draw (s1)--(t1);
-  \draw (s2)--(t2);
+  \node[fill=gray!20] (v1) at (0,0) {V\textsubscript{1}};
+  \node (v2) at (1.2,0) {V\textsubscript{2}};
+  \node[fill=gray!20] (t1) at (0,1.2) {T\textsubscript{1}};
+  \node (t2) at (1.2,1.2) {T\textsubscript{2}};
+  \draw (v1)--(t1)node[midway] {=};
+  \draw (v2)--(t2);
 \end{tikzpicture}
 &
 \begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
-  \node[fill=gray!20] (s1) at (0,0) {V};
-  \node (s2) at (1,0) {V};
-  \node (t1) at (0,1) {$T_1$};
-  \node (t2) at (1,1) {$T_2$};
-  \draw (s1)--(t1);
-  \draw (s2)--(t2);
-  \draw[dotted] (s2)--(t1);
-\end{tikzpicture}
-&
-\begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
-  \node[fill=gray!20] (s1) at (0,0) {V};
-  \node (s2) at (1,0) {V};
-  \node (t1) at (0,1) {H};
-  \node[fill=gray!20] (t2) at (1,1) {L};
-  \draw (s1)--(t1);
-  \draw (s2)--(t2);
-  \draw[dotted] (s2)--(t1);
+  \node [fill=gray!20](v1) at (0,0) {V\textsubscript{1}};
+  \node (v2) at (1.2,0) {V\textsubscript{2}};
+  \node (t1) at (0,1.2) {T\textsubscript{1}};
+  \node (t2) at (1.2,1.2) {T\textsubscript{2}};
+  \draw (v1)--(t1) node[midway] {=};
+  \draw (v2)--(t2);
+  \draw[dotted, thick] (v2)--(t1);
 \end{tikzpicture}
 
-\\[4pt]
-
-% --- ROW 2: LOGIC ---
-\scriptsize
-\textsf{reassoc}(x,y) := \text{False}
-&
-{\scriptsize
-$\begin{aligned}
-\textsf{reassoc}(x,y) &:= \textsf{survive\_V}(x) \\
-&\land \exists z(\alpha(y,z)\land \textsf{delete\_V}(z))
-\end{aligned}
-$}
-&
-{\scriptsize
-$\begin{aligned}
-\textsf{reassoc}(x,y) &:= \textsf{survive\_V}(x) \\
-&\land \exists z(\alpha(y,z)\land \textsf{delete\_V}(z)\\
-&\land H(y))\\
-\end{aligned}$
-}
 \\
+\midrule
 
+\multicolumn{2}{c}{\textbf{Ogoja Yala}} \\
+\midrule
+
+\begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
+  \node[fill=gray!20] (v1) at (0,0) {V};
+  \node (v2) at (1.2,0) {V};
+  \node[fill=gray!20] (t1) at (0,1.2) {L};
+  \node (t2) at (1.2,1.2) {H};
+  \draw (v1)--(t1)node[midway] {=};
+  \draw (v2)--(t2);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
+  \node[fill=gray!20] (v1) at (0,0) {V};
+  \node (v2) at (1.2,0) {V};
+  \node (t1) at (0,1.2) {H};
+  \node (t2) at (1.2,1.2) {L};
+  \draw (v1)--(t1)node[midway] {=};
+  \draw (v2)--(t2);
+  \draw[dotted, thick] (v2)--(t1);
+\end{tikzpicture}
+
+\\
 \bottomrule
 \end{tabular}
-
-\caption{Tonal processes triggered by vowel deletion across languages}
-\end{table}
+\end{wraptable}
