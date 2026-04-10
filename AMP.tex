@@ -87,7 +87,8 @@ relations: $\lhd$ and $\alpha$. The relation $\lhd$ encodes the successor relati
 $\lhd(x,y)$ indicates that $x$ immediately follows $y$. 
 For example, vowel hiatus can be defined as 
 $\textsf{hiatus}(x,y) := V(x) \land V(y) \land \lhd(x,y)$. The relation $\alpha(x,y)$ encodes association, indicating 
-that tone $x$ is linked to segment $y$.
+that tone $x$ is linked to segment $y$. We require that the association relation be symmetric, i.e.,
+$\alpha(x, y) \iff \alpha(y, x)$.
 These predicates, defined
 in model-theoretic terms, express exactly the
 same core ideas as autosegmental phonology \citep{goldsmith1976}, and reveal
@@ -120,7 +121,7 @@ $\phi_{\textsf{license}}$  restricts realization to associated units.
 Table~\ref{tab.transduction} lists all transductions from input 
 to output. The licensing function ensures that only associated 
 (i.e., fully specified) units surface in the SR. All unary 
-relations are preserved from UR to SR, as is the successor 
+relations (as well as their orders) are preserved from UR to SR, as is the successor 
 relation $\lhd$. 
 
 The output association relation $\alpha'$ is defined as follows: 
