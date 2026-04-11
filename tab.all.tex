@@ -1,4 +1,4 @@
-\begin{wraptable}{l}{0.25\textwidth}
+\begin{wraptable}{l}{0.22\textwidth}
 \vspace{-1em}
 \begin{tabular}{c|c}
 \toprule
@@ -31,8 +31,8 @@
 \midrule
 
 \begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
-  \node[fill=gray!20] (v1) at (0,0) {V};
-  \node (v2) at (1.2,0) {V};
+  \node[fill=gray!20] (v1) at (0,0) {V_1};
+  \node (v2) at (1.2,0) {V_2};
   \node[fill=gray!20] (t1) at (0,1.2) {L};
   \node (t2) at (1.2,1.2) {H};
   \draw (v1)--(t1)node[midway] {=};
@@ -40,16 +40,18 @@
 \end{tikzpicture}
 &
 \begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
-  \node[fill=gray!20] (v1) at (0,0) {V};
-  \node (v2) at (1.2,0) {V};
+  \node[fill=gray!20] (v1) at (0,0) {V_1};
+  \node (v2) at (1.2,0) {V_2};
   \node (t1) at (0,1.2) {H};
-  \node (t2) at (1.2,1.2) {L};
+  \node[fill=gray!20](t2) at (1.2,1.2) {L};
   \draw (v1)--(t1)node[midway] {=};
-  \draw (v2)--(t2);
+  \draw (v2)--(t2)node[midway] {=};
   \draw[dotted, thick] (v2)--(t1);
 \end{tikzpicture}
-
 \\
 \bottomrule
 \end{tabular}
+\caption{}
+\label{tab2}
+\vspace{-2em}
 \end{wraptable}

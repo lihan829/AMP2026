@@ -6,130 +6,147 @@ Transductions}
 \begin{document}
 \maketitle
 \vspace{-2em}
-\textbf{Introduction} This paper proposes a formal proposal to 
+\textbf{Introduction} This paper presents a formal proposal to 
 model the tonal processes resulting from vowel deletion. We argue
 that such processes can be reduced to two operations over 
 association relations: \textit{deassociation} and 
 \textit{reassociation}, which is consistent with the core idea 
 of autosegmental phonology \citep{goldsmith1976}. We show that 
-these two operations derive the major typological outcomes of 
 vowel deletion, and can possibly extend to less common cases. 
 This provides a unified and computationally explicit account 
 of tonal processes that preserves structural representations 
 while modifying only association relations rather than changing
-the segments or features. This also paves the path for learning
+the segments or features. This lays a foundation for learning
 more complex tonal processes over multitiered structures.
-We focus on three languages that exemplify the major tonal 
+We focus on three languages that exemplify major tonal 
 patterns triggered by vowel deletion in hiatus: Engenni, 
 Estako, and Ogoja Yala \citep{kao2017phonological}. In all 
 three languages, the first vowel in the hiatus is deleted, 
-but the associated tonal outcomes differ.
+but the associated tonal outcomes differ. We propose all 
+three processes can be captured by a set of transduction 
+relations mapping inputs to outputs. These input–output 
+transductions differ only in the language-specific 
+\textbf{deassociation} and \textbf{reassociation} operations.
 
 \ea 
 \textbf{Engenni (tone deletion):} 
 Deleting the vowel also removes its associated tone.
 \vspace{-1em}
 \begin{multicols}{2}
- /`ɔkò \# édèì/ $\rightarrow$ /`ɔkédèì/ \\
- \textit{man canoe} $\rightarrow$ \textit{a man’s canoe} 
+\quad\ L\quad H\qquad\qquad H\\
+ /\` ɔkò \# édèì/ $\rightarrow$ [\` ɔkédèì] \\
+ \textit{man \; canoe} $\rightarrow$ \textit{``a man’s canoe"} 
  
- /fùnú \# èdhí/ $\rightarrow$ /fùnèdhí/ \\
- \textit{climb palm tree} $\rightarrow$ \textit{to climb a palm tree}
-%\end{tabular}
+\quad\ \ H\quad L\qquad\qquad\ \ \ L\\
+/fùnú \# èdhí/ $\rightarrow$ [fùnèdhí] \\
+\textit{climb \; palm tree} $\rightarrow$ \textit{``to climb a palm tree"}
 \end{multicols}
 \z
-
-
 \ea \textbf{Estako (contour formation):} 
-The tone of the deleted vowel is preserved and reassociates 
-to the following vowel, forming a contour with the tone 
+The tone of the deleted vowel reassociates 
+to the following vowel, forming a contour with the tone
 originally linked to that vowel.
 \vspace{-1em}
 \begin{multicols}{2}
+\quad\ \ L \ \ \ H\qquad\qquad LH\\
 /ówà \# ówà/ $\rightarrow$ [ówǒwà] \\
-\textit{house house} $\rightarrow$ \textit{every house}
+\textit{house \ \ house} $\rightarrow$ \textit{``every house"}
 
-/\`ɔ \# dé \# àkpà/ $\rightarrow$ [\`ɔdâkpà] \\
-\textit{he buy cup} $\rightarrow$ \textit{he buys a cup}
+\qquad\ H \ \ \ L\qquad\qquad HL\\
+/\`ɔ \# dé \ \# àkpà/ $\rightarrow$ [\`ɔdâkpà] \\
+\textit{he \ \ buy \ \ cup} $\rightarrow$ \textit{``he buys a cup"}
 \end{multicols}
 \z
-
-
-\ea \textbf{Ogoja Yala (H-tone preservation):} 
-Only H tones are preserved. The retained H either replaces 
-the tone of the surviving vowel or remains unchanged.
-\vspace{-1em}\begin{multicols}{2}
+\ea \textbf{Ogoja Yala (higher tone is preserved)} 
+H tone is preserved. 
+If no H is present (i.e., only L and M), then M is preferred.
+The preserved tone either replaces the tone of the surviving vowel 
+(if surviving vowel has a lower pitched tone), or stay unchanged.
+\vspace{-1em}
+\begin{multicols}{3}
+\quad L \; \  H \qquad \quad \ H\\
 /dè \# áchí/ $\rightarrow$ [dáchí]\\
-\textit{give grass} $\rightarrow$ \textit{give grass}
+\textit{give \ grass} $\rightarrow$ \textit{``to give grass"}
 
-/má \# \`ɔ hí/ $\rightarrow$ [m\` ɔchí]\\
-\textit{see tree} $\rightarrow$ \textit{see tree}
+\quad H\quad L\qquad\ \ \ \quad H\\
+/má \# \` ɔchí/ $\rightarrow$ [m\' ɔchí]\\
+\vspace{1em}\textit{see \quad tree} $\rightarrow$ \textit{``to see tree"}
+
+\ \ M \ \ L \qquad \quad \ M\\
+/b\=i \# \` ɔchí/ $\rightarrow$ [b\=ɔchí]\\
+\textit{carry  stick} $\rightarrow$ \textit{``to carry a stick"}
+
 \end{multicols}
 \z
-
-We propose that all three tonal processes can be captured by 
-a set of transduction relations mapping inputs to outputs. 
-These input–output transductions differ only in the 
-language-specific \textbf{reassociation} operation.
 
 \paragraph{Logical Transduction of Tonal Processes}
-
-Using model theory \citep{strother2019diss,yolyan2025logical,jardine2017local} 
+Using model theory \citep{strother2019diss,yolyan2025logical,jardine2017local,oakden2020notation,jardineDanis2021Qtheory,ChandleeJardine2021BMRS},
 we define a phonological representation as relational structures of the 
-form $\langle D, \mathcal{R} \rangle$, where $D$ is a finite domain of 
-positions, and $\mathcal{R}$ is a set of relations (also known as the
-model \textit{signature}). 
+form $\langle D, \mathcal{R} \rangle$, where $D$ is a finite domain (a 
+finite set of positions), and $\mathcal{R}$ is a set of relations (also 
+known as the model \textit{signature}). 
 An autosegmental representation (AR) is defined over a signature 
 consisting of unary predicates, which indicate tonal or segmental 
-properties, such as $H, L, V,$ and $C$, and binary relations that 
+elements, such as $H, L, V,$ and $C$, and binary relations that 
 encode structural connections. In particular, we assume two binary 
-relations: $\lhd$ and $\alpha$. The relation $\lhd$ encodes the successor relation: 
-$\lhd(x,y)$ indicates that $x$ immediately follows $y$. 
-For example, vowel hiatus can be defined as 
-$\textsf{hiatus}(x,y) := V(x) \land V(y) \land \lhd(x,y)$. The relation $\alpha(x,y)$ encodes association, indicating 
+relations: $\lhd$ and $\alpha$. The relation $\lhd$ encodes the 
+successor relation: $\lhd(x,y)$ indicates that $x$ immediately 
+follows $y$. For example, vowel hiatus can be defined as 
+$\textsf{hiatus}(x,y) := V(x) \land V(y) \land \lhd(x,y)$, 
+which refers to a phonological context where $x$ and $y$ are 
+adjacent vowels and $x$ precedes $y$. In the three language examples 
+considered here, the first vowel $x$ is consistently deleted 
+(denoted \textsf{delete\_V}), while the second vowel $y$ survives 
+(denoted \textsf{survive\_V}).
+
+
+
+ The relation $\alpha(x,y)$ encodes association, indicating 
 that tone $x$ is linked to segment $y$. We require that the association relation be symmetric, i.e.,
 $\alpha(x, y) \iff \alpha(y, x)$.
+For convenience, we adopt the convention that the first 
+variable $x$ refers to the tone, and $y$ refers to the segment.
 These predicates, defined
-in model-theoretic terms, express exactly the
-same core ideas as autosegmental phonology \citep{goldsmith1976}, and reveal
-greater simplicity as we delve deeper into tonal processes.
+in model-theoretic terms, mathematically express the
+same core ideas as autosegmental phonology \citep{goldsmith1976,coleman1991no}
 
 \input{ARmodels.tex}
 Building on this view, we define a phonological transformation 
 from an underlying representation (UR) to a surface 
 representation (SR) is modeled as a relation between input
-and output structures (see more in \citet{oakden2020notation}). 
-The signature of the output can be obtained by referring to
-the input signature. Formally, for any predicate $R(x)$ in the input signature,
+and output structures.
+The output structure is obtained
+by evaluation of formulas with 
+respect to the input structure.
+For example, for any predicate $R(x)$ in the input signature,
 a faithful output predicate $R'$ is defined as $R'(x) := R(x)$,
 meaning that an element $x$ in the output domain has property $R$
 iff it has property $R$ in the input.
 
-\textbf{Our proposal} is that vowel-deletion–induced tonal 
+\textbf{Our proposal} is that vowel-deletion–triggered tonal 
 processes preserve all structural relations in the AR except 
 for $\alpha$, which is subject to language-specific 
-\textit{faithfulness}, \textit{deassociation}, and 
-\textit{reassociation}:
-\(
-\alpha'(x,y) := \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr)
-\lor \textsf{reassoc}(x,y)
-\). The deleted units remains in the domain 
-but are not realized at the surface, since a licensing function 
-$\phi_{\textsf{license}}$  restricts realization to associated units.
+\textit{deassociation}, and 
+\textit{reassociation}: $\alpha'(x,y) := \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr)
+\lor \textsf{reassoc}(x,y)$. Table~\ref{tab.transduction} lists all transductions from input 
+to output. The unassociated units in the domain are not realized 
+at the surface level, since the licensing function 
+$\phi_{\textsf{license}}$ is defined to restrict realization
+to associated units. All unary relations are preserved from 
+UR to SR, as is the successor relation $\lhd$.
 
-\input{tab.transduction.tex}
-Table~\ref{tab.transduction} lists all transductions from input 
-to output. The licensing function ensures that only associated 
-(i.e., fully specified) units surface in the SR. All unary 
-relations (as well as their orders) are preserved from UR to SR, as is the successor 
-relation $\lhd$. 
+ \input{tab.transduction.tex} 
 
-The output association relation $\alpha'$ is defined as follows: 
+The output association relation $\alpha'$ is defined
+as follows: 
 an association line holds in the output if (i) it is present 
 in the input and not removed by \textsf{deassoc}, or (ii) it is 
 introduced by \textsf{reassoc}. Concretely, \textsf{deassoc} 
-removes the association between the deleted vowel and its tone. 
-The language-specific \textsf{reassoc} operation then determines 
+removes the association between the deleted vowel and its tone, or as in the case of 
+Ogaja Yala, between the surviving vowel
+and its associated L tone, if 
+there is one.
+The \textsf{reassoc} operation then determines 
 the outcome: it may be inactive (Engenni), reattach the tone to 
 the surviving vowel (Estako), or rearrange association depends
 on the tone quality (Ogoja Yala).
@@ -137,32 +154,30 @@ on the tone quality (Ogoja Yala).
 \input{tab.all.tex} 
 \textbf{(a) Tone deletion in Engenni} is derived by a single operation, 
 \textsf{deassoc}, which deassociates the deleted 
-vowel and its tone (indicated by the crossed-out line). This leaves 
+vowel and its tone (indicated by the crossed-out line in Table~\ref{tab2}). 
+This leaves 
 both $T_1$ and $V_1$ unassociated. Since \textsf{reassoc} is inactive, 
 no new association is formed. Consequently, $T_1$ and $V_1$ remain 
-unassociated, therefore are not licensed by $\Phi_{license}$ 
-(indicated in gray). As a result, only the second tone and vowel will surface.
+unassociated, therefore are not licensed by $\phi_{\textsf{license}}$ 
+(indicated in gray in Table~\ref{tab2}). As a result, only $T_2$ and $V_2$
 
 \textbf{(b) Contour formation in Estako} is derived by the same 
 \textsf{deassoc} operation. The \textsf{reassoc} operation then 
 links the tone of the deleted vowel ($T_1$) to the surviving 
 vowel ($V_2$). As a result, $V_2$ becomes associated with both 
-$T_1$ and $T_2$, which forms a contour tone. At this stage, the 
-only unassociated unit is $V_1$, which is therefore not licensed.
+$T_1$ and $T_2$, which forms a contour tone. At this stage, $V_1$ 
+is the only unassociated unit, which is therefore not licensed.
 The surface form thus consists of the surviving vowel bearing 
 a contour tone.
 
-\textbf{(c) Mixed pattern in Ogoja Yala} provides strong evidence 
-for the autosegmental nature of tone. From a logical perspective, 
-the process closely parallels those in Engenni and Estako, with 
-one key difference: \textsf{reassoc} applies only to H tones. 
-
-If the deleted vowel $V_1$ is associated with a L tone, 
+\textbf{(c) Mixed pattern in Ogoja Yala}\todo{NEED FIX}
+parallels both patterns in Engenni and Estako, with 
+one key difference: \textsf{reassoc} applies only to H tones. If the deleted vowel $V_1$ is associated with a L tone, 
 then it patterns with Engenni: only \textsf{deassoc} applies and 
 \textsf{reassoc} remains inactive, leaving both elements 
-unassociated and therefore not licensed. If the deleted vowel has 
-an H tone, the process resembles Estako: the H tone reassociates 
-to the surviving vowel ($V_2$), forming a contour tone. 
+unassociated and therefore not licensed. If the deleted vowel has H, 
+the association lines to both $V_1$ and $V_2$ delinked, and the H 
+tone reassociates to the surviving vowel ($V_2$).
 
 \textbf{Conclusion} This paper has argued that vowel-deletion–induced 
 tonal processes can be uniformly captured as logical transductions 
@@ -172,14 +187,14 @@ the interaction of \textsf{deassoc} and \textsf{reassoc}.
 A limitation of the current analysis is that the transduction relies 
 on quantification to capture across-tier dependencies. An important 
 direction for future work is to determine whether these processes can 
-be simplified in a quantifier-free (QF) process.
+be simplified to a quantifier-free (QF) process [cite S paper 2018,]\citep{oakden2020notation}.
 This work also extends naturally to learning over ARs. Recent work 
-by \citet{yolyan2025logical} demonstrates that logical transductions 
-are learnable by using a bottom-up factorial inference algorithms 
-\citep{chandleeBufia2019}. 
+by \citet{yolyan2025logical} demonstrates that logical transductions for segmental phonology can be
+learned by adapting ideas from   
+\citet{chandleeBufia2019}. 
 
 \vfill
 \bibliographystyle{apalike}
+\scriptsize
 \bibliography{ref}
-
 \end{document}

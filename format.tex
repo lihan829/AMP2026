@@ -17,6 +17,8 @@
 \usepackage{titlesec}
 \usepackage{makecell}
 \usepackage{wrapfig}
+\usepackage{color}
+\usepackage{todonotes}
 
 % ---------- Tables ----------
 \usepackage{array}
@@ -42,9 +44,7 @@
 \usepackage{gb4e}
 
 % ---------- Citations ----------
-%\usepackage{natbib}
 \usepackage{natbib}
-%\bibliographystyle{apalike}
  \usepackage{paralist}
 % ---------- Compact Title (for conference) ---------- 
  \makeatletter
@@ -63,6 +63,6 @@
 \makeatletter
 \renewenvironment{thebibliography}[1]
 	{\textsc{\textbf{References}}      \small
-   \begin{inparaitem}[]\footnotesize \let\par\relax\newblock\relax}
+   \begin{inparaitem}[]\scriptsize \let\par\relax\newblock\relax}
   {\end{inparaitem}}
 \makeatother

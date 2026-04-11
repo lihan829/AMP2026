@@ -1,11 +1,10 @@
-\begin{wraptable}{l}{0.68\textwidth}
-\centering
+\begin{wraptable}{l}{0.7\textwidth}
+\vspace{-1em}
 \footnotesize
-\begin{tabular}{l}
+\begin{tabular}{c}
 \toprule
 \textbf{Transduction} \\
 \midrule
-
 \(
 \begin{aligned}
 \phi_{\textsf{license}}(x) 
@@ -22,28 +21,35 @@ R'(x)
   &:= \bigl(\alpha(x,y)\land \neg \textsf{deassoc}(x,y)\bigr) \lor \textsf{reassoc}(x,y) \\
 
 \textsf{deassoc}(x,y) 
-  &:= \alpha(x,y)\land \textsf{delete\_V}(y) \\
-
+  &:= 
+    \begin{cases}
+	 \alpha(x,y)\land \textsf{delete\_V}(y)     
+	 &\text{; for Engenni \& Estako} \\
+	 \alpha(x,y)\land (\textsf{delete\_V}(y)\lor  (\textsf{survive\_V}(y) \land \neg H(x)))
+	 	 &\text{; for Ogoja Yala} \\
+    \end{cases}
+\\
 \textsf{reassoc}(x,y) 
   &:=
   \begin{cases}
     \bot
-    & \text{Engenni} \\
+    & \text{; for Engenni} \\
 
     \textsf{survive\_V}(x)\land
     \exists z\,(\alpha(y,z)\land \textsf{delete\_V}(z))
-    & \text{Estako} \\
+    & \text{; for Estako} \\
 
     \textsf{survive\_V}(x)\land
-    \exists z\,(\alpha(y,z)\land \textsf{delete\_V}(z)\land H(y))
-    & \text{Ogoja Yala}
+    \exists z\,(\alpha(y,z)\land \textsf{delete\_V}(z)\land \neg L(y))
+    & \text{; for Ogoja Yala}
   \end{cases}
 \end{aligned}
 \)
 \\
 \bottomrule
 \end{tabular}
+\vspace{-.5em}
 \caption{}
-\vspace{-0.5cm}
 \label{tab.transduction}
+\vspace{-2em}
 \end{wraptable}
