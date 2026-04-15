@@ -25,7 +25,7 @@ R'(x)
     \begin{cases}
 	 \alpha(x,y)\land \textsf{delete\_V}(y)     
 	 &\text{; for Engenni \& Estako} \\
-	 \alpha(x,y)\land (\textsf{delete\_V}(y) \lor \textsf{survive\_V}(y) \land \exists z \lhd(z,x) \land \textsf{higher}(z,x))
+	 \alpha(x,y)\land \big(\textsf{delete\_V}(y) \lor \big(\textsf{survive\_V}(y) \land \exists z \ \textsf{higher}(z,x))\big)
 	 	 &\text{; for Ogoja Yala} \\
     \end{cases}
 \\
@@ -40,8 +40,7 @@ R'(x)
     & \text{; for Estako} \\
 
     \textsf{survive\_V}(y)\land
-  \exists z \lhd(x,z) \land \textsf{higher}(x,z))
-    & \text{; for Ogoja Yala}
+\exists z \ \textsf{higher}(x,z)    & \text{; for Ogoja Yala}
   \end{cases}
 \end{aligned}
 \)

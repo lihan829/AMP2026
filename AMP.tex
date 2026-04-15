@@ -102,8 +102,8 @@ the first vowel $x$ is consistently deleted (denoted
 \textsf{survive\_V}). In the case of Ogoja Yala, it will also be
 important to pick out whether the first of two successive tones bears
 a higher pitch, for which we use the predicate
-$\textsf{higher}(x,y) := (H(x) \land (M(y) \lor L(y))) \lor (M(x)
-\land L(y))$.
+$\textsf{higher}(x,y) := \lhd(x,y) \land \big((H(x) \land (M(y) \lor L(y))) \lor (M(x)
+\land L(y))\big)$.
 
  The relation $\alpha(x,y)$ encodes association, indicating 
 that tone $x$ is linked to segment $y$. We require that the association relation be symmetric, i.e.,
