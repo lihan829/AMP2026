@@ -48,7 +48,26 @@
   \draw (v2)--(t2)node[midway] {=};
   \draw[dotted, thick] (v2)--(t1);
 \end{tikzpicture}
-\\
+\\\midrule
+
+\begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
+  \node[fill=gray!20] (v1) at (0,0) {V_1};
+  \node (v2) at (1.2,0) {V_2};
+  \node[fill=gray!20] (t1) at (0,1.2) {L};
+  \node (t2) at (1.2,1.2) {M};
+  \draw (v1)--(t1)node[midway] {=};
+  \draw (v2)--(t2);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
+  \node[fill=gray!20] (v1) at (0,0) {V_1};
+  \node (v2) at (1.2,0) {V_2};
+  \node (t1) at (0,1.2) {M};
+  \node[fill=gray!20](t2) at (1.2,1.2) {L};
+  \draw (v1)--(t1)node[midway] {=};
+  \draw (v2)--(t2)node[midway] {=};
+  \draw[dotted, thick] (v2)--(t1);
+\end{tikzpicture}\\
 \bottomrule
 \end{tabular}
 \caption{}
