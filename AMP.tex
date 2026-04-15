@@ -80,24 +80,29 @@ The preserved tone either replaces the tone of the surviving vowel
 \z
 
 \paragraph{Logical Transduction of Tonal Processes}
-Using model theory \citep{strother2019diss,yolyan2025logical,jardine2017local,oakden2020notation,jardineDanis2021Qtheory,ChandleeJardine2021BMRS},
-we define a phonological representation as relational structures of the 
-form $\langle D, \mathcal{R} \rangle$, where $D$ is a finite domain (a 
-finite set of positions), and $\mathcal{R}$ is a set of relations (also 
-known as the model \textit{signature}). 
-An autosegmental representation (AR) is defined over a signature 
-consisting of unary predicates, which indicate tonal or segmental 
-elements, such as $H, L, V,$ and $C$, and binary relations that 
-encode structural connections. In particular, we assume two binary 
-relations: $\lhd$ and $\alpha$. The relation $\lhd$ encodes the 
-successor relation: $\lhd(x,y)$ indicates that $x$ immediately 
-follows $y$. For example, vowel hiatus can be defined as 
-$\textsf{hiatus}(x,y) := V(x) \land V(y) \land \lhd(x,y)$, 
-which refers to a phonological context where $x$ and $y$ are 
-adjacent vowels and $x$ precedes $y$. In the three language examples 
-considered here, the first vowel $x$ is consistently deleted 
-(denoted \textsf{delete\_V}), while the second vowel $y$ survives 
-(denoted \textsf{survive\_V}).
+Using model theory
+\citep{strother2019diss,yolyan2025logical,jardine2017local,oakden2020notation,jardineDanis2021Qtheory,ChandleeJardine2021BMRS},
+we define a phonological representation as relational structures of
+the form $\langle D, \mathcal{R} \rangle$, where $D$ is a finite
+domain (a finite set of positions), and $\mathcal{R}$ is a set of
+relations (also known as the model \textit{signature}).  An
+autosegmental representation (AR) is defined over a signature
+consisting of unary predicates, which indicate tonal or segmental
+elements, such as $H, L, V,$ and $C$, and binary relations that encode
+structural connections. In particular, we assume two binary relations:
+$\lhd$ and $\alpha$. The relation $\lhd$ encodes the successor
+relation: $\lhd(x,y)$ indicates that $x$ immediately follows $y$. For
+example, vowel hiatus can be defined as
+$\textsf{hiatus}(x,y) := V(x) \land V(y) \land \lhd(x,y)$, which
+refers to a phonological context where $x$ and $y$ are adjacent vowels
+and $x$ precedes $y$. In the three language examples considered here,
+the first vowel $x$ is consistently deleted (denoted
+\textsf{delete\_V}), while the second vowel $y$ survives (denoted
+\textsf{survive\_V}). In the case of Ogoja Yala, it will also be
+important to pick out whether the first of two successive tones bears
+a higher pitch, for which we use the predicate
+$\textsf{higher}(x,y) := (H(x) \land (M(y) \lor L(y))) \lor (M(x)
+\land L(y))$.
 
 
 
