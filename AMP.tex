@@ -124,12 +124,13 @@ for $\alpha$, which is subject to language-specific
 \[
 \alpha'(x,y) := (\alpha(x,y)\land \neg \textsf{deassoc}(x,y)) \lor \textsf{reassoc}(x,y)
 \]
-Table~\ref{tab.transduction} lists all transductions from input 
-to output. The unassociated units in the domain are not realized 
-at the surface level, since the licensing function 
-$\phi_{\textsf{license}}$ is defined to restrict realization
-to fully associated units. All unary relations are preserved faithfully from 
-UR to SR, as is the successor relation $\lhd$.
+Table~\ref{tab.transduction} provides the transductions.
+The unassociated units in the domain are not realized at the surface,
+since the licensing function $\phi_{\textsf{license}}$ restricts
+realization to fully associated units.
+Unary relations are preserved faithfully.
+The successor relation $\lhd$ is faithful modulo unlicensed units,
+handled by order preservation \citep{bhaskar+2023}.
 
  \input{tab.transduction.tex} 
 
@@ -144,18 +145,18 @@ and its associated L tone, if
 there is one.
 The \textsf{reassoc} operation then determines 
 the outcome: it may be inactive (Engenni), reattach the tone to 
-the surviving vowel (Estako), or rearrange association depends
+the surviving vowel (Estako), or rearrange the association depending
 on the relative pitch of two tones (Ogoja Yala).
 
-\input{tab.all.tex} 
-\textbf{(a) Tone deletion in Engenni} is derived by a single operation, 
-\textsf{deassoc}, which deassociates the deleted 
-vowel and its tone (indicated by the crossed-out line in Table~\ref{tab2}). 
-This leaves 
-both $T_1$ and $V_1$ unassociated. Since \textsf{reassoc} is inactive, 
-no new association is formed. Consequently, $T_1$ and $V_1$ remain 
-unassociated, therefore are not licensed by $\phi_{\textsf{license}}$ 
-(indicated in gray in Table~\ref{tab2}). As a result, only $T_2$ and $V_2$
+\input{tab.all.tex} \textbf{(a) Tone deletion in Engenni} is derived
+by a single operation, \textsf{deassoc}, which deassociates the
+deleted vowel and its tone (indicated by the crossed-out line in
+Table~\ref{tab2}).  This leaves both $T_1$ and $V_1$
+unassociated. Since \textsf{reassoc} is inactive, no new association
+is formed. Consequently, $T_1$ and $V_1$ remain unassociated,
+therefore are not licensed by $\phi_{\textsf{license}}$ (indicated in
+gray in Table~\ref{tab2}). Thus, only $T_2$ and $V_2$ surface in the
+output.
 
 \textbf{(b) Contour formation in Estako} is derived by the same 
 \textsf{deassoc} operation. The \textsf{reassoc} operation then 
@@ -177,19 +178,20 @@ one); (ii) if its pitch is higher, the surviving vowel keeps its
 original association, and no further \textsf{reassoc} applies (as in 
 Engenni). Similarly, any units not associated are not licensed.
 
-\textbf{Conclusion} This paper has argued that vowel-deletion–induced 
-tonal processes can be uniformly captured as logical transductions 
-over ARs. The observed typological 
-variation follows from modifying a single relation, $\alpha$, through 
-the interaction of \textsf{deassoc} and \textsf{reassoc}. 
-A limitation of the current analysis is that the transduction relies 
-on quantification to capture across-tier dependencies. An important 
-direction for future work is to determine whether these processes can 
-be simplified to a quantifier-free (QF) process \citep{oakden2020notation,strother2018imdlawn}.
-This work also extends naturally to learning over ARs. Recent work 
-by \citet{yolyan2025logical} demonstrates that logical transductions for segmental phonology can be
-learned by adapting ideas from   
-\citet{chandleeBufia2019}. 
+\textbf{Conclusion} This paper has argued that vowel-deletion–induced
+tonal processes can be uniformly captured as logical transductions
+over ARs. The observed typological variation follows from modifying a
+single relation, $\alpha$, through the interaction of \textsf{deassoc}
+and \textsf{reassoc}.  A limitation of the current analysis is that
+the transduction relies on quantification to capture across-tier
+dependencies. An important direction for future work is to determine
+whether these processes can be simplified to a quantifier-free (QF)
+process \citep{strother2018imdlawn, oakden2020notation}.  This work
+also extends naturally to learning over ARs. Recent work by
+\citet{yolyan2025logical} demonstrates that logical transductions for
+segmental phonology can be learned by adapting ideas from
+\citet{chandleeBufia2019}, and extending that work to autosegmental
+phonology is an important next step.
 
 \vfill
 \bibliographystyle{apalike}
