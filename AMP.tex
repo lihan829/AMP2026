@@ -193,6 +193,347 @@ segmental phonology can be learned by adapting ideas from
 \citet{chandleeBufia2019}, and extending that work to autosegmental
 phonology is an important next step.
 
+\section{Learning association changes using logical transductions}
+As mentioned above, the three types under discussion can be captured through a single association relation
+\(\alpha\) together with two sub-operations, \textsf{deassoc} and
+\textsf{reassoc}, modeled as logical transductions. These
+transductions are grounded in model-theoretic representations of
+phonological structures, where logical formulas define the mapping
+from input to output representations.
+
+As \citep{yolyan2025logical} argues, a major advantage of this approach
+is that it allows much greater flexibility in phonological
+representation for learning compared with traditional finite-state
+transducers, which primarily operate over strings. She further shows
+that model-theoretic representations facilitate learning by allowing
+the learner to search through a partially ordered space of possible
+structures, rather than through a purely linear string space.
+In this paper, we show how this learning framework can be extended to
+learn tonal processes in which the primary changes involve
+modifications of association lines rather than changes to segments or
+features themselves.
+
+It should be noted that although our discussion is rooted in tonal 
+phonology, the same learning approach can in principle be applied 
+to any phonological representation, provided that the input and output 
+structural relations are clearly defined model-theoretically. 
+
+\section{Case Study: Estako Accusative Compound}
+We illustrate the learning process using the Estako contour 
+formation pattern as a case study. Let us assume a small 
+dataset consisting of input-output pairs, specifically, 
+a accusative noun phgrases.
+
+In Estako, the noun in accusative form always ends with High tone.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Compound} & \textbf{Underlying Form} & \textbf{Surface Form} & \textbf{Gloss} \\
+\midrule
+a. /ówà/ && [ówà] & `house-singular=stem' \\
+b. /ówá/ && [ówá] & `house-ACC' \\
+% /áwé/ + /mhè/ & /áwémhè/ & [áwémhè] & `my water' \\
+c. /ówá/ + /mhè/ & /ówámhè/ & [ówámhè] & `my house' \\
+d. /ówá/ + /è\texttheta à/ & /ówáè\texttheta à/ & [ówê\texttheta à] & `father's house' \\
+e. /ówà/ + /ówà/ & /ówàówà/ & [ówǒwà] & `every house' \\
+\bottomrule
+\end{tabular}
+\caption{Possessive tonal alternations}
+\end{table}
+
+As one can see that a b c all surface faithfully to the underlying.
+D and e, when compounding together, resutls in a vowel hiatus,
+and will delete the first vowel, and do a contour. Instead of
+drawing the AR graph, we represent this changes in matrices.
+And abstract it away from the segemntal information, just use
+C and V, H and L.
+
+$
+\begin{array}{c|ccc}
+& H & L \\
+\hline
+V & 1 & 0 \\
+C & 0 & 0 \\
+V & \colorbox{pink}{1} & 0\\
+V & \colorbox{pink}{0} & 1\\
+C & 0 & 0 \\
+V & 0 & 1 \\
+\end{array}
+$$
+\begin{array}{c|ccc}
+& H & L \\
+\hline
+V & 1 & 0 \\
+C & 0 & 0 \\
+V & \colorbox{pink}{0} & 0\\
+V & \colorbox{pink}{1} & 1\\
+C & 0 & 0 \\
+V & 0 & 1 \\
+\end{array}
+$\hfill $
+\begin{array}{c|cccc}
+& H & L & H & L \\
+\hline
+V & 1 & 0 & 0 & 0\\
+C & 0 & 0 & 0 & 0\\
+V & 0 & \colorbox{pink}{1}  & 0 & 0\\
+V & 0 & \colorbox{teal}{0} & 1 & 0\\
+C & 0 & 0 & 0 & 0\\
+V & 0 & 0 & 0 & 1\\
+\end{array}
+$
+\quad $
+\begin{array}{c|cccc}
+& H & L & H & L \\
+\hline
+V & 1 & 0 & 0 & 0\\
+C & 0 & 0 & 0 & 0\\
+V & 0 & \colorbox{pink}{0}  & 0 & 0\\
+V & 0 & \colorbox{teal}{1} & 1 & 0\\
+C & 0 & 0 & 0 & 0\\
+V & 0 & 0 & 0 & 1\\
+\end{array}
+$
+
+There are two changes from input to output. First, the association
+between the first vowel in the hiatus and its tone is removed. This is
+a \textsc{deassociation} operation, indicated by the value in the cell
+changing from \(1\) to \(0\) (shown in pink). Second, the association
+between the second vowel and its tone is added. This is a
+\textsc{reassociation} operation, indicated by the change from \(0\) to
+\(1\) (shown in green). All other associations remain unchanged.
+
+From segmental phonology, we are familiar with rewrite rules such as
+
+\[
+A \rightarrow B \,/\, C \_ D
+\]
+
+where \(C \_ D\) represents the contextual environment that triggers
+the change from \(A\) to \(B\). In autosegmental phonology, such
+processes are not always easy to express linearly, since the relevant
+structure involves relations rather than simple strings. However, the
+learning question remains the same: what environment triggers the
+change from \(1\) to \(0\), and what environment triggers the change
+from \(0\) to \(1\)?
+
+With only a single UR--SR pair, there are infinitely many possible
+hypotheses. For example, one might hypothesize that all \(H\) tones
+delete their associations, or that all vowels do. However, once more
+data points are observed, counterexamples eliminate incorrect
+generalizations.
+
+The learning task, therefore, is to determine the surrounding
+environment of a particular cell value—either \(1\) or \(0\)—that
+triggers the change.
+
+\[
+\begin{array}{ccc}
+? & ? & ? \\
+? & \colorbox{pink}{0} & ? \\
+? & ? & ?
+\end{array}
+\quad \rightarrow \quad
+\begin{array}{ccc}
+? & ? & ? \\
+? & \colorbox{pink}{1} & ? \\
+? & ? & ?
+\end{array}
+\]
+
+% \begin{tikzpicture}[scale=0.7, every node/.style={inner sep=2pt}]
+%   \node [fill=gray!20](v1) at (0,0) {V\textsubscript{1}};
+%   \node (v2) at (1.2,0) {V\textsubscript{2}};
+%   \node (t1) at (0,1.2) {T\textsubscript{1}};
+%   \node (t2) at (1.2,1.2) {T\textsubscript{2}};
+%   \draw (v1)--(t1) node[midway] {=};
+%   \draw (v2)--(t2);
+%   \draw[dotted, thick] (v2)--(t1);
+% \end{tikzpicture} 
+\subsection{Learning process}
+
+We begin with an idealized assumption: the tonal process involves no
+change to the segmental string, and the only modifications between the
+underlying representation (UR) and the surface representation (SR) are
+changes in association lines, namely \textsc{deassociation} and
+\textsc{reassociation}. Although many phonological processes also
+involve segmental deletion, insertion, or feature changes, we restrict
+the current discussion to association-line modifications in order to
+isolate the learning problem.
+
+The first step is to identify exactly what structural modification has
+taken place between the UR and the SR. Since the segmental and tonal
+tiers remain constant, the comparison is made directly over the
+association relation matrix.
+
+For each cell in the association matrix:
+
+\[
+\text{if } \mathrm{UR}_{ij} = 1 \text{ and } \mathrm{SR}_{ij} = 0,
+\quad \Rightarrow \quad \textsc{deassociation}
+\]
+
+\[
+\text{if } \mathrm{UR}_{ij} = 0 \text{ and } \mathrm{SR}_{ij} = 1,
+\quad \Rightarrow \quad \textsc{reassociation}
+\]
+
+That is, if an association present in the UR disappears in the SR, the
+operation is classified as deassociation; if a new association appears
+in the SR that was absent in the UR, the operation is classified as
+reassociation.
+
+In Estoko, both operations are attested: one association line is
+removed while another is added. Therefore, the learner must infer both
+the deassociation environment and the reassociation environment
+separately. (maybe not maybe they can start together)
+
+\paragraph{Hypothesis space for deassociation.}
+
+Once a deassociation site has been identified, the learner constructs
+candidate structural descriptions for the environment in which a
+\(1\)-valued association changes to \(0\). The search begins with the
+smallest possible factors and gradually adds more structure. Each
+candidate factor corresponds to a hypothesis about what triggers
+deassociation.
+
+The most general hypothesis is that every existing association is
+removed:
+
+\[
+\text{Hypothesis 1: } 1 \rightarrow 0
+\]
+
+This hypothesis is too general, since there are counterexamples in
+which other \(1\)-valued associations remain unchanged, such as
+\((H,V_1)\), \((L,V_3)\), and \((L,V_4)\).
+
+A slightly more specific hypothesis is that deassociation is triggered
+by a single element from either tier: either a particular tone or a particular segment that the
+changing association line is connecting with.
+This gives the following one-factor hypotheses:
+
+\[
+\begin{array}{c}
+% \text{one-factor with only an } H \text{ column}
+% \\[1ex]
+\begin{array}{c|c}
+ & H \\
+\hline
+ & 1
+\end{array}
+\end{array}
+\begin{array}{c}
+% \text{one-factor with only a } V \text{ row}
+% \\[1ex]
+\begin{array}{c|c}
+ &  \\
+\hline
+V & 1
+\end{array}
+\end{array}
+\]
+The first statement corresponds to the hypothesis that an association
+line will be removed whenever it connects to a particular structural
+element, such as a high tone or a vowel. In logical form, these
+deassociation conditions can be stated as
+
+\[
+\textsc{deassoc}(x,y) \;:=\; \alpha(x,y) \;\wedge\; H(x)
+\\
+\textsc{deassoc}(x,y) \;:=\; \alpha(x,y) \;\wedge\; V(y)
+\]
+The first hypothesis predicts
+that any line involving an \(H\)-tone will be deassociated, while the
+second predicts that any association involving a vowel will be removed.
+
+These hypotheses are still too general if the data contain
+\(H\)-associations or vowel associations that remain unchanged, since
+they would incorrectly predict deassociation in those cases.
+The learner then considers two-factor hypotheses, where the triggering
+environment contains two pieces of structure.
+
+\[
+\begin{array}{c}
+\text{two-factor with both an } L \text{ column and a } V \text{ row}
+\\[1ex]
+\begin{array}{c|c}
+ & L \\
+\hline
+V & 1
+\end{array}
+\end{array}
+\]
+
+This hypothesis states that deassociation applies specifically to an
+association between a vowel and an \(L\) tone.
+
+Other two-factor hypotheses add neighboring tones or neighboring
+segments:
+
+\[
+\begin{array}{cc}
+\begin{array}{c}
+\text{two-factor with } H,L \text{ tone columns}
+\\[1ex]
+\begin{array}{c|cc}
+ & H & L \\
+\hline
+ & 0 & 1
+\end{array}
+\end{array}
+&
+\begin{array}{c}
+\text{two-factor with } C,V \text{ segment rows}
+\\[1ex]
+\begin{array}{c|c}
+ &  \\
+\hline
+C & 0 \\
+V & 1
+\end{array}
+\end{array}
+\end{array}
+\]
+
+\[
+\begin{array}{c}
+\text{two-factor with adjacent } V,V \text{ segment rows}
+\\[1ex]
+\begin{array}{c|c}
+ &  \\
+\hline
+V & 1 \\
+V & 0
+\end{array}
+\end{array}
+\]
+
+If these two-factor hypotheses are still too general, the learner
+continues to larger factors. For example, a three-factor hypothesis can
+combine the relevant tone with the local segmental environment:
+
+\[
+\begin{array}{c}
+\text{three-factor with an } L \text{ tone and adjacent } V,V \text{ rows}
+\\[1ex]
+\begin{array}{c|c}
+ & L \\
+\hline
+V & 1 \\
+V & 0
+\end{array}
+\end{array}
+\]
+
+This hypothesis states that deassociation applies to an \(L\)-tone
+association on the first vowel in a \(V V\) sequence. In other words,
+the learner searches for the smallest structural factor that correctly
+captures all and only the observed deassociation sites.
+
 \vfill
 \bibliographystyle{apalike}
 \footnotesize
